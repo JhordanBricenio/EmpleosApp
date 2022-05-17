@@ -1,0 +1,73 @@
+﻿
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>EmpleosApp | Listado de Categorías</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="bootstrap/css/jumbotron.css" rel="stylesheet">
+    <link href="bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <main role="main">     
+      <hr>
+      <div class="container">
+       @if(TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["SuccessMessage"]
+            </div>
+        }          
+
+        <div class="card">
+          <h4 class="card-header"><strong>Listado de Categorías</strong></h4>              
+          <div class="card-body">
+            <a class="btn btn-primary" href="/categorias/create" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nueva</a>            
+            <hr>
+            <table class="table table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Operaciones</th>
+                </tr>
+              </thead>
+              <tbody>
+               @foreach (var item in Model){
+                <tr>
+                  <th scope="row">@item.Id</th>
+                  <td>@item.Nombre</td>
+                  <td>@item.Descripcion</td>
+                  <td>
+                    <a href="/categorias/Edit?id=@item.Id" class="btn btn-success btn-sm" role="button" title="Editar"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a href="/categorias/Delete?id=@item.Id" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
+                  </td>
+                </tr>
+               }
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>     
+  </body>
+</html>

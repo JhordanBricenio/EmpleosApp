@@ -1,0 +1,23 @@
+﻿@model Categoria 
+
+<form action="/categorias/save" method="post">  
+    <input type="hidden" asp-for="Id"  />
+              <div class="row">
+                <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" asp-for="Nombre" id="Nombre" name="nombre" placeholder="Escriba el nombre de la categoria" required="required">
+                  </div>
+                </div>                
+              </div> 
+              <div class="row">
+                <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea class="form-control"  asp-for="Descripcion" name="descripcion" id="Descripcion"  rows="2" required="required"></textarea>
+                  </div> 
+                </div>                
+              </div> 
+              <hr>
+      <button type="submit" title="Guardar el registro." class="btn btn-primary">Guardar</button>  
+</form>

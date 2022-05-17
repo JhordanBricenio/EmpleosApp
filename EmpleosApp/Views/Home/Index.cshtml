@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="favicon.ico">
+
+	<title>EmpleosApp | Aplicación para publicar Ofertas de Trabajo.</title>
+	<!-- Bootstrap core CSS -->
+
+  </head>
+
+  <body>
+	<main role="main">
+
+	  <!-- Main jumbotron for a primary marketing message or call to action -->
+	  <div class="jumbotron">
+		<div class="container">
+		  <h3>Encuentra el trabajo que andas buscando.</h3>
+		  Puedes buscar por descripción y categoría.
+		  <form class="form-inline">
+			<input type="text" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Escriba una búsqueda">&nbsp;
+			<select class="custom-select custom-select mb-3">
+			  <option value="" selected>Seleccione una categoría</option>
+			  @foreach(var item in ViewBag.Categorias)
+			   {
+			  <option value="@item.Id">@item.Nombre</option>
+			   }
+			</select>&nbsp;
+			<button type="submit" class="btn btn-primary mb-3">Buscar</button>
+		  </form>
+		</div>
+	  </div>
+	  <hr>
+
+	  <div class="container"> 
+		<h2 class="font-weight-bold text-center text-capitalize">DESTACADOS</h2>
+		<hr>
+		@foreach(var c in Model){
+		<div class="row">
+		  <div class="col-md-3">            
+			<img class="rounded mx-auto d-block" src="/images/@c.Imagen" alt="Generic placeholder image" width="220" height="220">            
+		  </div>
+		  <div class="col-md-9">
+			<h2>@c.Nombre</h2>
+			<h6 class="card-title"><strong>Categoría: </strong> <span>@c.Categorias.Nombre</span></h6>
+			<h6 class="card-title"><strong>Publicado: </strong> <span>@c.Fecha.ToString("d")</span></h6>                
+			<p>@c.Descripcion</p>
+			<p><a class="btn btn-secondary" href="/vacantes/verDetalle?id=@c.Id" role="button">Ver detalles &raquo;</a></p>            
+		  </div>
+		</div>
+		}
+		  <hr>	
+	  </div> <!-- /container -->
+
+	</main>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
