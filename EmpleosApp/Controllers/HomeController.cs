@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace EmpleosApp.Controllers
 {
-    [Authorize]    
+     
     public class HomeController : Controller
     {
         private readonly IVacanteRepositorio _vacanteRepositorio;
@@ -34,6 +34,13 @@ namespace EmpleosApp.Controllers
         public IActionResult Acerca()
         {
             return View();
-        }  
+        }
+        public IActionResult Search(string cadena)
+        {
+            var vacantes = _vacanteRepositorio.ObtenerPorDescricion(cadena);
+            ViewBag.Categorias = _categoriaRepositorio.ObtenerPorNombre(cadena);
+            return View("Index", vacantes);
+        }
     }
+
 }

@@ -1,5 +1,4 @@
-﻿@model Categoria
-
+﻿
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,7 +24,27 @@
         <div class="card">
           <h4 class="card-header"><strong>Datos de la categoría</strong></h4>              
           <div class="card-body">
-                    <partial name="~/Views/Categorias/_Formulario.cshtml" />
+            <form action="/categorias/edit?id=@Model.Id" method="post">  
+                <input type="hidden"  />
+                          <div class="row">
+                            <div class="col-md-6"> 
+                              <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="Nombre" name="nombre" value="@Model.Nombre" required="required">
+                              </div>
+                            </div>                
+                          </div> 
+                          <div class="row">
+                            <div class="col-md-6"> 
+                              <div class="form-group">
+                                <label for="descripcion">Descripción</label>
+                                <textarea class="form-control"  name="Descripcion"  id="Descripcion"  rows="2" value="">@Model.Descripcion</textarea>
+                              </div> 
+                            </div>                
+                          </div> 
+                          <hr>
+                  <button type="submit" title="Guardar el registro." class="btn btn-primary">Guardar</button>  
+            </form>
           </div>
         </div>
       </div> <!-- /container -->

@@ -21,31 +21,31 @@
       <hr>
       <div class="container"> 
         <div class="row">
-          <div class="col-md-3">            
-            <img class="rounded mx-auto d-block" src="/images/@Model.Imagen" alt="Generic placeholder image" width="220" height="220">            
+                      <div class="col-md-3">            
+            <img class="rounded mx-auto d-block" src="/images/@ViewBag.Vacantes.Imagen" alt="Generic placeholder image" width="220" height="220">            
           </div>
           <div class="col-md-9">
             <div class="card">
-              <h4 class="card-header"><strong>Aplicar para la vacante <span>@Model.Nombre</span></strong></h4>              
+              <h4 class="card-header"><strong>Aplicar para la vacante <span>@ViewBag.Vacantes.Nombre</span></strong></h4>              
               <div class="card-body">
-                <h5 class="card-title"><strong>Categoría: </strong><span>@Model.Categorias.Nombre</span></h5>
-                <h6 class="card-title"><strong>Publicado: </strong><span>@Model.Fecha.ToString("d")</span></h6>
-                <h6 class="card-title"><strong>Salario Ofrecido: </strong><span>@Model.Salario</span></h6>
-                <p class="card-text">@Model.Descripcion</p>
+                <h5 class="card-title"><strong>Categoría: </strong><span>@ViewBag.Vacantes.Categorias.Nombre</span></h5>
+                <h6 class="card-title"><strong>Publicado: </strong><span>@ViewBag.Vacantes.Fecha.ToString("d")</span></h6>
+                <h6 class="card-title"><strong>Salario Ofrecido: </strong><span>@ViewBag.Vacantes.Salario</span></h6>
+                <p class="card-text">@ViewBag.Vacantes.Descripcion</p>
                 <hr>
-                <form action="/solicitudes/save" method="post">                                                 
+                <form action="/solicitudes/Save" method="post" enctype="multipart/form-data" >
+                   <input type="hidden" id="IdVacante" name="IdVacante" value="@ViewBag.Vacantes.Id"/>
                   <div class="row">
                     <div class="col-md-6"> 
                       <div class="form-group">
                         <label for="comentarios">Comentarios</label>
-                        <textarea class="form-control" name="comentarios" id="Comentarios"  rows="2"></textarea>
-                        @Html.ValidationMessage("Comentarios")
+                        <textarea class="form-control" name="Comentarios" id="Comentarios"  rows="2"></textarea>
                       </div> 
                     </div> 
                     <div class="col-md-6"> 
                       <div class="form-group">
-                        <label for="archivoCV">Curriculm Vitae</label>
-                        <input type="file" class="form-control-file" name="archivoCV" id="archivoCV">
+                        <label for="ImageFile">Curriculm Vitae</label>
+                        <input type="file" class="form-control-file" name="ImageFile" id="ImageFile" required="required">
                         <p class="help-block">Archivos [ pdf,doc,docx ]</p>
                       </div>
                     </div>

@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿@model Usuario
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -24,30 +25,34 @@
         <div class="card">
           <h4 class="card-header"><strong>Formulario de registro</strong></h4>              
           <div class="card-body">
-            <form>              
+            <form action="/usuarios/create" method="post">              
               <div class="row">
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba su nombre" required="required">
+                    <input  type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Escriba su nombre" >
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
                   </div>
                 </div>
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="email">Correo electrónico</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Escriba su correo electrónico" required="required">
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Escriba su correo electrónico" required="required">
+                    <span asp-validation-for="Email" class="text-danger"></span>
                   </div> 
                 </div>    
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Escriba su nombre de usuario" required="required">
+                    <input type="text" class="form-control" id="Username" name="Username" placeholder="Escriba su nombre de usuario" required="required">
+                    <span asp-validation-for="Username" class="text-danger"></span>
                   </div>
                 </div>
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Escriba su clave de acceso" required="required">
+                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Escriba su clave de acceso" required="required">
+                    <span asp-validation-for="Password" class="text-danger"></span>
                   </div>
                 </div>
               </div>                  
@@ -57,17 +62,11 @@
           </div>
         </div>
       </div> <!-- /container -->
+      @section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
 
     </main>
-
-    <footer class="footer">
-      <div class="container">
-        <p>
-          &copy; 2019 EmpleosApp, Inc. | WebApp Desarrollada con Spring Boot 2.1.2 | Autor: Iv&aacute;n E. Tinajero D&iacute;az | &middot; <a href="#">Privacy</a>
-          &middot; <a href="#">Terms</a>
-        </p>
-      </div>
-    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

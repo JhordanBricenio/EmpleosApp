@@ -19,7 +19,7 @@ namespace EmpleosAppTest.Controllers
         {
             var mockCategorias = new Mock<ICategoriaRepositorio>();
             mockCategorias.Setup(x => x.ObtenerTodos()).Returns(new List<Categoria>() { new Categoria() });
-            var controller = new CategoriasController(mockCategorias.Object);
+            var controller = new CategoriasController(mockCategorias.Object, null);
             var result =(ViewResult)controller.Index();
             Assert.IsNotNull(result);
             Assert.IsNotNull(result.Model);//Modelo  enviado hacia la vsita no es nulo
@@ -31,7 +31,7 @@ namespace EmpleosAppTest.Controllers
         public void CreateGetTest01()
         {
             var mockCategorias = new Mock<ICategoriaRepositorio>();
-            var controller = new CategoriasController(mockCategorias.Object);
+            var controller = new CategoriasController(mockCategorias.Object, null);
             var result = controller.Create();
             Assert.IsNotNull(result);
 

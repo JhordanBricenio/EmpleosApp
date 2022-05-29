@@ -13,6 +13,16 @@ namespace EmpleosApp.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Usuario>()
+                .HasMany(u => u.Perfiles)
+                .WithMany(p => p.Usuarios)
+                .UsingEntity<UsuarioPerfil>(
+                    up => up.HasOne(prop => prop.Usuario)
+                            .WithMany()
+                            .HasForeignKey(prop => prop.IdUsuario)
+                    
+                 
+                     );
             base.OnModelCreating(modelBuilder);
             
             modelBuilder.ApplyConfiguration(new PerfilesMapping());

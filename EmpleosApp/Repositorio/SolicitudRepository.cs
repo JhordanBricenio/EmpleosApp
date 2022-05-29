@@ -11,6 +11,9 @@ namespace EmpleosApp.Repositorio
         Vacante ObtenerPorId(int id);
 
         void Guardar(Solicitud solicitud);
+
+        Solicitud ObtenerPorIdDelete(int id);
+        void Eliminar(int id);
     }
     public class SolicitudRepository: ISolicitudRepositorio
     {
@@ -21,9 +24,17 @@ namespace EmpleosApp.Repositorio
                 _dbEntities = dbEntities;
             }
 
+        public void Eliminar(int id)
+        {
+            var solicitud = ObtenerPorIdDelete(id);
+            _dbEntities.Remove(solicitud);
+            _dbEntities.SaveChanges();
+        }
+
         public void Guardar(Solicitud solicitud)
         {
             _dbEntities.Solicitudes.Add(solicitud);
+            _dbEntities.SaveChanges();
         }
 
         public Vacante ObtenerPorId(int id)
@@ -31,9 +42,19 @@ namespace EmpleosApp.Repositorio
             return _dbEntities.Vacantes.Include("Categorias").First(o => o.Id == id);
         }
 
+        public Solicitud ObtenerPorIdDelete(int id)
+        {
+            return _dbEntities.Solicitudes.First(o => o.Id == id);
+        }
+
         public List<Solicitud> ObtenerTodos()
             {
-                return _dbEntities.Solicitudes.ToList();
+            return _dbEntities.Solicitudes
+                    .Include("Vacante")
+                    .Include("Usuario")
+                    .ToList();
+                        
+                        //.Include("Vacantes").ToList();
             }
         
     }

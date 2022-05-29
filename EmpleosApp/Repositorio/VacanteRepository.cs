@@ -10,6 +10,14 @@ namespace EmpleosApp.Repositorio
         Vacante ObtenerPorId(int id);
 
         List<Vacante> ObtenerDestacados();
+
+        List<Vacante> ObtenerPorDescricion(string cadena);
+
+        void Create(Vacante vacante);
+
+        void Update(Vacante vacante);
+
+        bool VacanteExists(int id);
     }
     
     public class VacanteRepository : IVacanteRepositorio
@@ -21,10 +29,21 @@ namespace EmpleosApp.Repositorio
             _dbEntities = dbEntities;
         }
 
+        public void Create(Vacante vacante)
+        {
+            _dbEntities.Vacantes.Add(vacante);
+            _dbEntities.SaveChanges();
+        }
+
         public List<Vacante> ObtenerDestacados()
         {
             return _dbEntities.Vacantes.Where(x => x.Destacado == 1).Include("Categorias").ToList();
            // return _dbEntities.Vacantes.Include("Categorias").ToList();
+        }
+
+        public List<Vacante> ObtenerPorDescricion(string cadena)
+        {
+            return _dbEntities.Vacantes.Where(x => x.Descripcion.Contains(cadena)).ToListAsync().Result;
         }
 
         public Vacante ObtenerPorId(int id)
@@ -34,10 +53,23 @@ namespace EmpleosApp.Repositorio
         
         public List<Vacante> ObtenerTodos()
         {
-            return _dbEntities.Vacantes.ToList();
-           // return _dbEntities.Vacantes.Include("Categoria").ToList();
+            //return _dbEntities.Vacantes.ToList();
+           return _dbEntities.Vacantes.Include("Categorias").ToList();
 
 
         }
+
+        public void Update(Vacante vacante)
+        { 
+            _dbEntities.Update(vacante);
+            _dbEntities.SaveChanges();
+        }
+
+        public bool VacanteExists(int id)
+        {
+            return _dbEntities.Vacantes.Any(o => o.Id == id);
+             //_context.Carousel.Any(e => e.CarouselId == id);
+        }
     }
 }
+

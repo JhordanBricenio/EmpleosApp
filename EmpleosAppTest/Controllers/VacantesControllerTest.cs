@@ -22,7 +22,7 @@ namespace EmpleosAppTest.Controllers
             var mockCategoria = new Mock<ICategoriaRepositorio>();
             
             
-            var controller = new VacantesController(mockVacante.Object, mockCategoria.Object);
+            var controller = new VacantesController(mockVacante.Object, mockCategoria.Object, null);
             var result =(ViewResult)controller.Index();
             Assert.IsNotNull(result);
             Assert.AreEqual(1, ((List<Vacante>)result.Model).Count);
@@ -36,7 +36,7 @@ namespace EmpleosAppTest.Controllers
             var mockCategoria = new Mock<ICategoriaRepositorio>();
 
 
-            var controller = new VacantesController(mockVacante.Object, mockCategoria.Object);
+            var controller = new VacantesController(mockVacante.Object, mockCategoria.Object, null);
             
             var result =(ViewResult) controller.VerDetalle(1);
             Assert.IsNotNull(result);

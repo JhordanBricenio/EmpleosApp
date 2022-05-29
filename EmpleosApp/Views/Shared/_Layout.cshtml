@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using EmpleosApp.Helpers;
+@using System.Security.Claims;
+@using System.Security.Principal;
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -18,25 +24,37 @@
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-		  <ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-			  <a class="nav-link active" href="/Solicitudes/index">Solicitudes</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link active" href="/vacantes/index">Vacantes</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link active" href="/categorias/index">Categorias</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link active" href="/usuarios/index">Usuarios</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link active" href="/home/acerca">Acerca</a>
-			</li> 
-		  </ul>  
-			<a class="btn btn-outline-light" href="/auth/login">Ingresar</a>&nbsp;
+			
+			
+					<ul class="navbar-nav mr-auto">
+						@if (User.Identity.IsAuthenticated)
+						{
+						<li class="nav-item">
+							<a class="nav-link active" href="/Solicitudes/index">Solicitudes</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="/vacantes/index">Vacantes</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="/categorias/index">Categorias</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="/usuarios/index">Usuarios</a>
+						</li>
+						}
+						<li class="nav-item">
+							<a class="nav-link active" href="/home/acerca">Acerca</a>
+						</li>
+					</ul>
+			
+			@if (User.Identity.IsAuthenticated)
+			{
+				<a class="nav-item mr-2">Bienvenido: @SessionHelper.GetName(User)</a>
+				<a class="btn btn-primary" href="/auth/Logout">Cerrar Sesión</a>
+			}else{
+			<a class="btn btn-outline-light mr-2" href="/auth/login">Ingresar</a>;
 			<a class="btn btn-outline-light" href="/usuarios/create">Registrarse</a>
+			}
 		</div>
 	  </nav>
 	</header>

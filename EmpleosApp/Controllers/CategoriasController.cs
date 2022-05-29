@@ -1,15 +1,18 @@
 ﻿using EmpleosApp.Models;
 using EmpleosApp.Repositorio;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace EmpleosApp.Controllers
 {
     public class CategoriasController : Controller
     {
         private readonly ICategoriaRepositorio _categoriasRepository;
-        public CategoriasController(ICategoriaRepositorio categoriasRepository)
+        private readonly IAuthRepositorio _authRepositorio;
+        public CategoriasController(ICategoriaRepositorio categoriasRepository, IAuthRepositorio authRepositorio)
         {
             this._categoriasRepository = categoriasRepository;
+            this._authRepositorio = authRepositorio;
         }
         public IActionResult Index()
         {
@@ -25,6 +28,7 @@ namespace EmpleosApp.Controllers
 
         public IActionResult Save(Categoria categoria)
         {
+           
             if (ModelState.IsValid)
             {
 
@@ -34,10 +38,11 @@ namespace EmpleosApp.Controllers
             }
             return RedirectToAction("Create");
         }
-        public IActionResult Edit(int id )
+
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
             var Categoria = _categoriasRepository.ObtenerPorId(id);
-            //var Cliente = ctx.Clientes.Where(x=>x.IdCliente == id).SingleOrDefault()
             if (Categoria == null)
             {
                 return RedirectToAction("Index");
@@ -45,11 +50,22 @@ namespace EmpleosApp.Controllers
             return View(Categoria);
         }
 
+        [HttpPost]
+        public IActionResult Edit(int id, Categoria categoria )
+        {
+
+            _categoriasRepository.Editar(id, categoria);
+            TempData["SuccessMessage"] = "Se editó la categoría de forma correcta";
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Delete(int id)
         {
             _categoriasRepository.Eliminar(id);
+            TempData["SuccessMessage"] = "Se eliminó la categoría de forma correcta";
             return RedirectToAction("Index");
         }
+
 
     }
 }

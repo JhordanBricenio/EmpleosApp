@@ -1,4 +1,6 @@
-﻿<!doctype html>
+﻿
+
+<!doctype html>
 <html lang="en">
   <head>
 	<meta charset="utf-8">
@@ -16,21 +18,28 @@
 	<main role="main">
 
 	  <!-- Main jumbotron for a primary marketing message or call to action -->
-	  <div class="jumbotron">
+	  @if(TempData["SuccessMessage"] != null)
+			{
+				<div class="alert alert-success">
+					@TempData["SuccessMessage"]
+				</div>
+			}
+	  <div class="jumbotron bg-info">
 		<div class="container">
-		  <h3>Encuentra el trabajo que andas buscando.</h3>
+		  <h3 id="TitleId">Encuentra el trabajo que andas buscando.</h3>
 		  Puedes buscar por descripción y categoría.
-		  <form class="form-inline">
-			<input type="text" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Escriba una búsqueda">&nbsp;
+		  <form class="form-inline" action="/home/search" method="get">
 			<select class="custom-select custom-select mb-3">
 			  <option value="" selected>Seleccione una categoría</option>
 			  @foreach(var item in ViewBag.Categorias)
 			   {
-			  <option value="@item.Id">@item.Nombre</option>
+				<option value="@item.Id">@item.Nombre</option>
 			   }
 			</select>&nbsp;
 			<button type="submit" class="btn btn-primary mb-3">Buscar</button>
 		  </form>
+
+		  
 		</div>
 	  </div>
 	  <hr>
@@ -39,9 +48,9 @@
 		<h2 class="font-weight-bold text-center text-capitalize">DESTACADOS</h2>
 		<hr>
 		@foreach(var c in Model){
-		<div class="row">
+		<div class="row mt-2">
 		  <div class="col-md-3">            
-			<img class="rounded mx-auto d-block" src="/images/@c.Imagen" alt="Generic placeholder image" width="220" height="220">            
+			<img class="rounded mx-auto d-block" src="/images/@c.Imagen" alt="Generic placeholder image" width="220" height="180">            
 		  </div>
 		  <div class="col-md-9">
 			<h2>@c.Nombre</h2>

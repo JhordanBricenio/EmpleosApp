@@ -7,6 +7,8 @@ namespace EmpleosApp.Repositorio
     {
         Usuario aunteticacion(string username);
         bool aunteticacionCokie(string username, string password);
+
+ 
     }
     public class AuthRepository : IAuthRepositorio
     {
@@ -26,5 +28,6 @@ namespace EmpleosApp.Repositorio
             return _dbEntities.Usuarios.Any(o => o.Username == username && o.Password == password);
         }
 
+        
     }
 }

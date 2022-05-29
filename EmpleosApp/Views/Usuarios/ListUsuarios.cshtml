@@ -21,6 +21,12 @@
 	<main role="main">     
 	  <hr>
 	  <div class="container"> 
+		@if(TempData["SuccessMessage"] != null)
+		{
+			<div class="alert alert-success">
+				@TempData["SuccessMessage"]
+			</div>
+		}  
 
 		<div class="card">
 		  <h4 class="card-header"><strong>Listado de Usuarios</strong></h4>              
@@ -45,7 +51,7 @@
 				  <td>@item.Email</td>
 				  <td>@item.Estado</td>
 				  <td>
-					<a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+					<a href="/usuarios/Delete?id=@item.Id" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
 					<a href="#" onclick="return confirm('¿Quiere bloquear el acceso al usuario?')" class="btn btn-success btn-sm" role="button" title="Bloquear el acceso al sistema para este usuario."><i class="fas fa-lock" aria-hidden="true"></i></a>	
 					<a href="#" onclick="return confirm('¿Desea desbloquear el usuario?')" class="btn btn-success btn-sm" role="button" title="Permitir el acceso al sistema a este usuario."><i class="fas fa-unlock" aria-hidden="true"></i></a>
 				  </td>

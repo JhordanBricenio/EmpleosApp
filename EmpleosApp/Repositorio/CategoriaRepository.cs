@@ -11,11 +11,11 @@ namespace EmpleosApp.Repositorio
 
         Categoria ObtenerPorId(int id);
 
-        Categoria ObtenerPorIdCategoria(Categoria categoria);
-
-        void Editar(Categoria categoria);
+        void Editar(int id, Categoria categoria);
 
         void Eliminar(int id);
+
+        List<Categoria> ObtenerPorNombre(string cadena);
     }
     public class CategoriaRepository : ICategoriaRepositorio
     {
@@ -25,9 +25,12 @@ namespace EmpleosApp.Repositorio
             _dbEntities = dbEntities;
         }
 
-        public void Editar(Categoria categoria)
+        public void Editar(int id, Categoria categoria)
         {
-            
+            var EditCat = ObtenerPorId(id);
+            EditCat.Nombre = categoria.Nombre;
+            EditCat.Descripcion = categoria.Descripcion;
+            _dbEntities.SaveChanges();
         }
 
         public void Eliminar(int id)
@@ -48,10 +51,11 @@ namespace EmpleosApp.Repositorio
             return _dbEntities.Categorias.Find(id);
         }
 
-        public Categoria ObtenerPorIdCategoria(Categoria categoria)
+        public List<Categoria> ObtenerPorNombre(string cadena)
         {
-            return _dbEntities.Categorias.Where(x => x.Id == categoria.Id).SingleOrDefault();
+            return _dbEntities.Categorias.Where(x => x.Nombre.Contains(cadena)).ToList();
         }
+
         public List<Categoria> ObtenerTodos()
         {
             return _dbEntities.Categorias.ToList();

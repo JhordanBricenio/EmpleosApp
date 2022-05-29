@@ -23,7 +23,27 @@
         <div class="card">
           <h4 class="card-header"><strong>Datos de la categoría</strong></h4>              
           <div class="card-body">
-                    <partial name="~/Views/Categorias/_Formulario.cshtml" />
+             <form action="/categorias/save" method="post">  
+                    <input type="hidden"  />
+                              <div class="row">
+                                <div class="col-md-6"> 
+                                  <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" class="form-control" id="Nombre" name="nombre" placeholder="Escriba el nombre de la categoria" required="required">
+                                  </div>
+                                </div>                
+                              </div> 
+                              <div class="row">
+                                <div class="col-md-6"> 
+                                  <div class="form-group">
+                                    <label for="descripcion">Descripción</label>
+                                    <textarea class="form-control" name="descripcion" id="Descripcion"  rows="2" required="required"></textarea>
+                                  </div> 
+                                </div>                
+                              </div> 
+                              <hr>
+                      <button type="submit" title="Guardar el registro." class="btn btn-primary">Guardar</button>  
+                </form>
           </div>
         </div>
       </div> <!-- /container -->

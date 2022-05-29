@@ -27,18 +27,18 @@
 		<div class="card">
 		  <h4 class="card-header"><strong>Datos de la oferta de trabajo</strong></h4>              
 		  <div class="card-body">
-			<form action="/vacantes/create" method="post"  enctype="multipart/form-data">              
+			<form action="/vacantes/edit?id=@Model.Id" method="post"  enctype="multipart/form-data">              
 			  <div class="row">
 				<div class="col-md-3"> 
 				  <div class="form-group">
 					<label for="nombre">Nombre</label>
-					<input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Titulo de la oferta de trabajo" required="required">
+					<input type="text" class="form-control" id="Nombre" name="Nombre" value="@Model.Nombre" placeholder="Titulo de la oferta de trabajo" required="required">
 				  </div>
 				</div>
 				<div class="col-md-9"> 
 				  <div class="form-group">
 					<label for="descripcion">Descripción</label>
-					<input type="text" class="form-control" id="Descripcion" name="Descripcion" placeholder="Breve descripcion de la oferta de trabajo" required="required">
+					<input type="text" class="form-control" id="Descripcion" name="Descripcion" value="@Model.Descripcion" placeholder="Breve descripcion de la oferta de trabajo" required="required">
 				  </div> 
 				</div>    
 			  </div>    
@@ -48,18 +48,19 @@
 					<label for="categoria">Categoría</label>
 					<select class="form-control" name="IdCategoria" id="IdCategoria">
 						<option value="" selected>Seleccione una categoría</option>
-						@foreach(var item in Model)
+						@foreach(var item in ViewBag.Categorias)
 						{
 							<option value="@item.Id">@item.Nombre</option>
 						}
 					</select>
+					
 				  </div>
 				</div>
 
 				<div class="col-md-3"> 
 				  <div class="form-group">
 					<label for="estatus">Estatus</label>
-					<select class="form-control" name="Estatus" id="Estatus">
+					<select class="form-control" name="Estatus" id="Estatus"  >
 					  <option value="1">Creada</option>
 					  <option value="0">Eliminada</option>	
 					</select>
@@ -68,7 +69,7 @@
 				<div class="col-md-3"> 
 				  <div class="form-group">
 					<label for="fecha">Fecha de Publicación</label>
-					<input type="text" class="form-control" name="Fecha" id="Fecha"  Value="@ViewBag.Fecha" disabled= "disabled" required="required">
+					<input type="text" class="form-control" name="Fecha" id="Fecha" value="@Model.Fecha.ToString("d")" disabled="disabled" required="required">
 				  </div>  
 				</div>
 				<div class="col-md-3"> 
@@ -87,13 +88,13 @@
 				<div class="col-md-3"> 
 				  <div class="form-group">
 					<label for="salario">Salario Ofrecido (Aprox)</label>
-					<input type="text" class="form-control" name="Salario" id="Salario" placeholder="Salario aproximado." required="required">
+					<input type="text" class="form-control" name="Salario" id="Salario" value="@Model.Salario" placeholder="Salario aproximado." required="required">
 				  </div>
 				</div>
 				<div class="col-md-3"> 
 				  <div class="form-group">
 					<label for="ImageFile">Imagen</label>
-					<input type="file" class="form-control-file" accept="image/*" name="ImageFile" id="ImageFile">
+					<input type="file" class="form-control-file" accept="image/*" name="ImageFile" id="ImageFile" required="required">
 				  </div>
 				</div>
 			  </div> 
@@ -102,7 +103,7 @@
 				<div class="col-md-9"> 
 				  <div class="form-group">
 					<label for="detalles"><strong>Detalles</strong></label>          
-					<textarea class="form-control" name="Detalles" id="mytextarea" rows="7"></textarea>
+					<textarea class="form-control" name="Detalles" id="mytextarea"  rows="7">@Html.Raw(Model.Detalles)</textarea>
 				  </div> 
 				</div> 
 				<!--<div class="col-md-3">
@@ -126,7 +127,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>    
-	<script src="tinymce/tinymce.min.js"></script>
 	<script src="https://cdn.tiny.cloud/1/ys8awiwpla2pc5rxg9iw1p6x6hkzi89entx4viiaiagjy3g8/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
 		tinymce.init({
