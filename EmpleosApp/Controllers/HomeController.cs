@@ -1,8 +1,10 @@
 ﻿using EmpleosApp.Models;
 using EmpleosApp.Repositorio;
+using EmpleosApp.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+
 
 namespace EmpleosApp.Controllers
 {
@@ -19,12 +21,30 @@ namespace EmpleosApp.Controllers
             this._categoriaRepositorio = categoriaRepositorio;
         }
         
-        public IActionResult Index()
+        public IActionResult Index(int pagina = 1)
         {
+            var cantidadRegistrosPorPagina = 5;
 
-            var vacantes = _vacanteRepositorio.ObtenerDestacados();
+            var vacantes = _vacanteRepositorio.ObtenerDestacados(pagina, cantidadRegistrosPorPagina);
+            
+            
+                
+
+            var totalDeRegistros = _vacanteRepositorio.ObtenerDestacados().Count();
+
+
+            var modelo = new IndexViewModel();
+            modelo.Vacantes = vacantes;
+            modelo.PaginaActual = pagina;
+            modelo.TotalDeRegistros = totalDeRegistros;
+            modelo.RegistrosPorPagina = cantidadRegistrosPorPagina;
+
             ViewBag.Categorias = _categoriaRepositorio.ObtenerTodos();
-            return View(vacantes);
+            //var vacante = _vacanteRepositorio.ObtenerDestacados();
+
+            
+            return View(modelo);
+
         }
         public IActionResult Detalle()
         {
@@ -35,10 +55,10 @@ namespace EmpleosApp.Controllers
         {
             return View();
         }
-        public IActionResult Search(string cadena)
+        public IActionResult Search(int  id)
         {
-            var vacantes = _vacanteRepositorio.ObtenerPorDescricion(cadena);
-            ViewBag.Categorias = _categoriaRepositorio.ObtenerPorNombre(cadena);
+            var vacantes = _vacanteRepositorio.ObtenerPorDescricion(id);
+            ViewBag.Categorias = _categoriaRepositorio.ObtenerTodos();
             return View("Index", vacantes);
         }
     }

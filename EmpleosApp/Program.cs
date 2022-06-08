@@ -2,6 +2,7 @@ using EmpleosApp.DB;
 using EmpleosApp.Repositorio;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using EmpleosApp.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<IVacanteRepositorio, VacanteRepository>();
@@ -12,6 +13,10 @@ builder.Services.AddScoped<IAuthRepositorio, AuthRepository>();
 
 // Add services to the container.
 builder.Services.AddDbContext<DbEntities>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("con")));
+
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+builder.Services.AddSingleton<MailService>();
+
 
 builder.Services.AddControllersWithViews();
 

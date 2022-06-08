@@ -3,7 +3,7 @@
 namespace EmpleosApp.Models
 {
     [Table("usuarioPerfil")]
-    public class UsuarioPerfil
+    public partial class UsuarioPerfil
     {
         [Column("idUsuario")]
         public int IdUsuario { get; set; }
@@ -11,8 +11,9 @@ namespace EmpleosApp.Models
         [Column("idPerfil")]
         public int IdPerfil { get; set; }
 
-        public Usuario Usuario { get; set; }
+        [ForeignKey("IdPerfil")]
+        public virtual Perfil? Perfil { get; set; }
 
-        public Perfil Perfil { get; set; }
+        
     }
 }

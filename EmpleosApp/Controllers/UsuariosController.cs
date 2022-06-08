@@ -38,10 +38,10 @@ namespace EmpleosApp.Controllers
                 
                 usuario.Estado = 1;
                 usuario.FechaRegistro = DateTime.Now;
-                // Creamos el Perfil que le asignaremos al usuario nuevo
+                // Creamos el Perfil que le asignaremos al usuario nuevo       
                 Perfil perfil = new Perfil();
-               // perfil.Id=2; // Perfil USUARIO
-               // usuario.agregar(perfil);
+                perfil.Id=2; // Perfil USUARIO
+                usuario.agregar(perfil);
 
 
 

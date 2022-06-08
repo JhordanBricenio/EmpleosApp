@@ -18,10 +18,13 @@ namespace EmpleosAppTest.Controllers
         public void IndexTest01()
         {
             var mockVacante = new Mock<IVacanteRepositorio>();
-                mockVacante.Setup(x => x.ObtenerTodos()).Returns(new List<Vacante>() {new Vacante()});
+                //mockVacante.Setup(x => x.ObtenerDestacados(1, 1)).Returns(new List<Vacante>() {new Vacante(){Id=1, Descripcion = "Hola" } });
+                mockVacante.Setup(o =>o.ObtenerDestacados()).Returns(new List<Vacante>() { new Vacante() { Id = 1, Descripcion = "Hola" } });
             var mockCategoria = new Mock<ICategoriaRepositorio>();
+            
             var controller = new HomeController(mockVacante.Object, mockCategoria.Object);
-            var result =(ViewResult) controller.Index();
+
+            var result =(ViewResult) controller.Index(1);
             Assert.IsNotNull(result);
 
            //Assert.IsNotNull(result.Model);//Modelo  enviado hacia la vsita no es nulo

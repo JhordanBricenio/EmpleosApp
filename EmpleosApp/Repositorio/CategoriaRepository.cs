@@ -27,7 +27,7 @@ namespace EmpleosApp.Repositorio
 
         public void Editar(int id, Categoria categoria)
         {
-            var EditCat = ObtenerPorId(id);
+            var EditCat = _dbEntities.Categorias.First(o => o.Id == id);
             EditCat.Nombre = categoria.Nombre;
             EditCat.Descripcion = categoria.Descripcion;
             _dbEntities.SaveChanges();
@@ -35,7 +35,7 @@ namespace EmpleosApp.Repositorio
 
         public void Eliminar(int id)
         {
-            var categoriaDb = ObtenerPorId(id);
+            var categoriaDb = _dbEntities.Categorias.First(o => o.Id == id);
             _dbEntities.Categorias.Remove(categoriaDb);
             _dbEntities.SaveChanges();
         }
@@ -48,7 +48,7 @@ namespace EmpleosApp.Repositorio
 
         public Categoria ObtenerPorId(int id)
         {
-            return _dbEntities.Categorias.Find(id);
+            return _dbEntities.Categorias.First(o => o.Id == id);
         }
 
         public List<Categoria> ObtenerPorNombre(string cadena)

@@ -43,5 +43,20 @@ namespace EmpleosAppTest.Controllers
 
             Assert.IsInstanceOf<Vacante>(result.Model);
         }
+
+        [Test]
+        public void CreatePostTest01()
+        {
+            var mockVacante = new Mock<IVacanteRepositorio>();
+                //mockVacante.Setup(o => o.ObtenerTodos()).Returns(new List<Vacante>() { new Vacante() });
+
+
+
+            var controller = new VacantesController(mockVacante.Object, null, null);
+
+            var result = controller.Create(new Vacante());
+            Assert.IsNotNull(result);
+
+        }
     }
 }

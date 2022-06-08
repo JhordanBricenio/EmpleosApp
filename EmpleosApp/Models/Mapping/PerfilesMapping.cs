@@ -8,7 +8,7 @@ namespace EmpleosApp.Models.Mapping
         public void Configure(EntityTypeBuilder<UsuarioPerfil> builder)
         {
             builder.ToTable("usuarioPerfil");
-            builder.HasKey(o => new { o.IdPerfil,o.IdUsuario} );
+            builder.HasKey(o => new { o.IdUsuario, o.IdPerfil} );
         }
     }
 }

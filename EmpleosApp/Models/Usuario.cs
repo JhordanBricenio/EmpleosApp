@@ -41,18 +41,23 @@ namespace EmpleosApp.Models
         
         public DateTime FechaRegistro { get; set; }
 
-        public List<Perfil>? Perfiles { get; set; }
+        [ForeignKey("IdUsuario")]
+        public List<UsuarioPerfil>? Perfiles { get; set; }
 
+        [NotMapped]
+        public  List<Perfil>? Perfile { get; set; }
 
         // Metodo para agregar perfiles
         public void agregar(Perfil tempPerfil)
         {
-            if (Perfiles == null)
+            if (Perfile == null)
             {
-                Perfiles = new List<Perfil>();
+                Perfile = new List<Perfil>();
             }
-            Perfiles.Add(tempPerfil);
+            Perfile.Add(tempPerfil);
         }
+        // Metodo para agregar perfiles
+
 
     }
 }

@@ -1,0 +1,44 @@
+﻿@model BaseModelo
+
+@{
+    var cantidadPaginas = (int)Math.Ceiling((double)Model.TotalDeRegistros / Model.RegistrosPorPagina);
+}
+
+@{
+    int Inicial = 1;
+    var radio = 3;
+    var cantidadMaximaDePaginas = radio * 2 + 1;
+    int Final = (cantidadPaginas > cantidadMaximaDePaginas) ? cantidadMaximaDePaginas : cantidadPaginas;
+    if (Model.PaginaActual > radio + 1)
+    {
+        Inicial = Model.PaginaActual - radio;
+        if (cantidadPaginas > Model.PaginaActual + radio)
+        {
+            Final = Model.PaginaActual + radio;
+        }
+        else
+        {
+            Final = cantidadPaginas;
+        }
+    }
+}
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class=""><a class="page-link" @Html.ActionLink("Previous", null, new {pagina=1})</li>
+        @for (int i = Inicial; i <= Final; i++)
+        {
+       
+            if (i == Model.PaginaActual)
+            {
+                <li class="active"> <a class="page-link" @Html.ActionLink(i.ToString(), null,new {pagina=i})> </li>
+            }
+            else
+            {
+                <li class=""> <a class="page-link"@Html.ActionLink(i.ToString(), null, new {pagina=i})></a></li>
+            }
+        }
+    
+        <li class=""> <a class="page-link" @Html.ActionLink("Next", null, new {pagina=cantidadPaginas})</li>
+    </ul>
+</nav>

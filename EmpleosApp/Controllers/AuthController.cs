@@ -33,6 +33,19 @@ namespace EmpleosApp.Controllers
            // Usuario user = new Usuario();
             password = DesEncriptar(password);
 
+            var result = _authRepository.aunteticacionCok(username, password);
+
+            if (result.Perfiles.Count == 0)
+            {
+                var response = new
+                {
+                    success = false,
+                    message = "Usted no tiene Acceso al Sistema"
+                };
+                return Json(response);
+            }
+            
+
 
             if (_authRepository.aunteticacionCokie(username, password))
             {
@@ -42,8 +55,17 @@ namespace EmpleosApp.Controllers
                     
                     
                 };
-
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                foreach (var Rol in result.Perfiles)
+                {
+                    
+                    claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, Rol.Perfil.perfil));
+
+
+                }
+
+               
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                 
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal,

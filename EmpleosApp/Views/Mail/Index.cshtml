@@ -1,0 +1,31 @@
+﻿
+<div class="container">
+    <h2 class="text-center">Envio de email</h2>
+    <form action="/Mail/Index" method="post" class="form-group">
+        <label>Proveedor de email</label>
+        <select name="proveedorEmail"  class="form-control" >
+           <!-- <option value="gmail">Gmail</option>-->
+            <option value="outlook">Outlook</option>
+        </select>
+        <label>Dirección a la que quiere enviar el mensaje</label>
+        <input type="email" name="direccionEnvio"  readonly class="form-control" value="@ViewBag.Email"/>
+        <label>Asunto</label>
+        <input type="text" name="asunto"  class="form-control"  />
+        <label>Mensaje</label>
+        <textarea name="mensaje" class="form-control mb-2"></textarea>
+        <button class="mt-2 btn btn-outline-success"type="submit">Enviar</button>
+    </form>
+</div>
+
+<script src="https://cdn.tiny.cloud/1/ys8awiwpla2pc5rxg9iw1p6x6hkzi89entx4viiaiagjy3g8/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          language: "es",	  
+          plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+          toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
+          toolbar_mode: 'floating',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+        });
+  </script>

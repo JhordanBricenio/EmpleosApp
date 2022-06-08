@@ -51,8 +51,8 @@
 				  <td>@item.Fecha.ToString("d")</td>
 				  <td>
 					<a href="/solicitudes/Delete?id=@item.Id" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
-					<a href="#" class="btn btn-success btn-sm" role="button" title="Enviar correo electrónico al usuario."><i class="fas fa-envelope" aria-hidden="true"></i></a>
-					<a href="#" class="btn btn-success btn-sm" role="button" title="Descargar Curriculm Vitae."><i class="fas fa-download" aria-hidden="true"></i></a>
+					<a href="/Mail/Index?email=@item.Usuario.Email"  class="btn btn-success btn-sm" role="button" title="Enviar correo electrónico al usuario."><i class="fas fa-envelope" aria-hidden="true"></i></a>
+					<a href="/solicitudes/Download?docName=@item.Archivo" class="btn btn-success btn-sm" role="button" title="Descargar Curriculm Vitae."><i class="fas fa-download" aria-hidden="true"></i></a>
 				  </td>
 				</tr>
 				}

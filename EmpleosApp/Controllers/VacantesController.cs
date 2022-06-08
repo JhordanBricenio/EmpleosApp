@@ -62,7 +62,7 @@ namespace EmpleosApp.Controllers
         public IActionResult Create(Vacante vacante)
         {
             
-            var categorias = _categoriaRepositorio.ObtenerTodos();
+            //var categorias = _categoriaRepositorio.ObtenerTodos();
             
 
 

@@ -1,5 +1,6 @@
 ﻿using EmpleosApp.DB;
 using EmpleosApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmpleosApp.Repositorio
 {
@@ -8,7 +9,10 @@ namespace EmpleosApp.Repositorio
         Usuario aunteticacion(string username);
         bool aunteticacionCokie(string username, string password);
 
- 
+        Usuario aunteticacionCok(string username, string password);
+
+
+
     }
     public class AuthRepository : IAuthRepositorio
     {
@@ -25,9 +29,13 @@ namespace EmpleosApp.Repositorio
 
         public bool aunteticacionCokie(string username, string password)
         {
-            return _dbEntities.Usuarios.Any(o => o.Username == username && o.Password == password);
+            return _dbEntities.Usuarios.Include("Perfiles.Perfil").Any(o => o.Username == username && o.Password == password);
+        }
+        public Usuario aunteticacionCok(string username, string password)
+        {
+            return _dbEntities.Usuarios.Where(o => o.Username == username && o.Password == password).Include("Perfiles.Perfil").SingleOrDefault();
         }
 
-        
+
     }
 }

@@ -1,18 +1,6 @@
-﻿
+﻿@model EmpleosApp.ViewModels.IndexViewModel
 
-<!doctype html>
-<html lang="en">
-  <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="icon" href="favicon.ico">
 
-	<title>EmpleosApp | Aplicación para publicar Ofertas de Trabajo.</title>
-	<!-- Bootstrap core CSS -->
-
-  </head>
 
   <body>
 	<main role="main">
@@ -24,10 +12,10 @@
 					@TempData["SuccessMessage"]
 				</div>
 			}
-	  <div class="jumbotron bg-info">
+	  <div class="jumbotron" id="jumbotron">
 		<div class="container">
-		  <h3 id="TitleId">Encuentra el trabajo que andas buscando.</h3>
-		  Puedes buscar por descripción y categoría.
+		  <h3 class="text-white" id="TitleId"><em>Encuentra el trabajo que andas buscando.</em></h3>
+		  <p class="text-white"><em>Puedes buscar por Categoría.</em></p>
 		  <form class="form-inline" action="/home/search" method="get">
 			<select class="custom-select custom-select mb-3">
 			  <option value="" selected>Seleccione una categoría</option>
@@ -45,28 +33,37 @@
 	  <hr>
 
 	  <div class="container"> 
-		<h2 class="font-weight-bold text-center text-capitalize">DESTACADOS</h2>
+		<h2 class="font-weight-bold text-center text-capitalize">Ofertas de Empleo Destacadas</h2>
 		<hr>
-		@foreach(var c in Model){
+		@foreach(var c in Model.Vacantes){
 		<div class="row mt-2">
-		  <div class="col-md-3">            
-			<img class="rounded mx-auto d-block" src="/images/@c.Imagen" alt="Generic placeholder image" width="220" height="180">            
+			
+		  <div class="col-md-3">
+			  @if(c.Destacado==1){
+				<span class="badge badge-danger ml-2">Destacado</span>
+				
+			}
+			<img class="rounded mx-auto d-block " src="/images/@c.Imagen" alt="Generic placeholder image" width="220" height="180">            
 		  </div>
 		  <div class="col-md-9">
 			<h2>@c.Nombre</h2>
 			<h6 class="card-title"><strong>Categoría: </strong> <span>@c.Categorias.Nombre</span></h6>
 			<h6 class="card-title"><strong>Publicado: </strong> <span>@c.Fecha.ToString("d")</span></h6>                
 			<p>@c.Descripcion</p>
-			<p><a class="btn btn-secondary" href="/vacantes/verDetalle?id=@c.Id" role="button">Ver detalles &raquo;</a></p>            
+			<p><a class="px-4 btn text-white underline font-weight-bold btn btn-secondary" href="/vacantes/verDetalle?id=@c.Id" role="button">Ver detalles &raquo;</a></p>            
 		  </div>
 		</div>
 		}
 		  <hr>	
 	  </div> <!-- /container -->
-
+	  <br />
+	  <div class="container">
+		  @{Html.RenderPartial("_paginador", Model);}
+	  </div>
+		
+		
 	</main>
-
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
-</html>

@@ -13,19 +13,13 @@ namespace EmpleosApp.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Usuario>()
-                .HasMany(u => u.Perfiles)
-                .WithMany(p => p.Usuarios)
-                .UsingEntity<UsuarioPerfil>(
-                    up => up.HasOne(prop => prop.Usuario)
-                            .WithMany()
-                            .HasForeignKey(prop => prop.IdUsuario)
-                    
-                 
-                     );
             base.OnModelCreating(modelBuilder);
             
-            modelBuilder.ApplyConfiguration(new PerfilesMapping());
+            modelBuilder.Entity<UsuarioPerfil>().HasKey(x => new { x.IdUsuario, x.IdPerfil });
+
+            
+            
+            //modelBuilder.ApplyConfiguration(new PerfilesMapping());
             modelBuilder.ApplyConfiguration(new SolicitudMapping());
             modelBuilder.ApplyConfiguration(new VacanteMapping());
 
@@ -36,6 +30,7 @@ namespace EmpleosApp.DB
         public virtual DbSet<Perfil> Perfiles { get; set; }
         public virtual DbSet<Solicitud> Solicitudes { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<UsuarioPerfil> UsuarioPerfil { get; set; }
 
         public virtual DbSet<Vacante> Vacantes { get; set; }
     }

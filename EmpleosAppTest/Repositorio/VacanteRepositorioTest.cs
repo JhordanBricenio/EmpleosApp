@@ -41,5 +41,24 @@ namespace EmpleosAppTest.Repositorio
 
             Assert.AreEqual(2, result.Count);
         }
+
+        [Test]
+        public void UpdateTestCaso01()
+        {
+            var mockBdSetVacante = new MockDbSet<Vacante>(data);
+
+
+            var mockBd = new Mock<DbEntities>();
+                mockBd.Setup(x => x.Vacantes).Returns(mockBdSetVacante.Object);
+
+            var vacanteRepo = new VacanteRepository(mockBd.Object);
+
+            vacanteRepo.Update(data.First(o => o.Id == 1));
+
+            var datoMockEditar = data.First(o => o.Id == 1);           
+            
+            mockBdSetVacante.Verify(o => o.Update(datoMockEditar), Times.Once());
+
+        }
     }
 }

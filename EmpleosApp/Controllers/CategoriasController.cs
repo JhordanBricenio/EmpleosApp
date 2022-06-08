@@ -8,11 +8,11 @@ namespace EmpleosApp.Controllers
     public class CategoriasController : Controller
     {
         private readonly ICategoriaRepositorio _categoriasRepository;
-        private readonly IAuthRepositorio _authRepositorio;
-        public CategoriasController(ICategoriaRepositorio categoriasRepository, IAuthRepositorio authRepositorio)
+       // private readonly IAuthRepositorio _authRepositorio;
+        public CategoriasController(ICategoriaRepositorio categoriasRepository)
         {
             this._categoriasRepository = categoriasRepository;
-            this._authRepositorio = authRepositorio;
+            //this._authRepositorio = authRepositorio;
         }
         public IActionResult Index()
         {

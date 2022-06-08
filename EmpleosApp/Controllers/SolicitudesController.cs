@@ -40,7 +40,7 @@ namespace EmpleosApp.Controllers
            
                 
                 _solicitudesRepository.Guardar(solicitud);
-                TempData["SuccessMessage"] = "Usted aplicó a esta Vacante";
+                TempData["SuccessMessage"] = "Gracias por enviar tu CV!";
                 return RedirectToAction("Index", "Home");
         }
 
@@ -71,6 +71,13 @@ namespace EmpleosApp.Controllers
             }
 
             return fileName;
+        }
+        public FileResult Download(string docName)
+        {
+            var FileVirtualPath = "~/archivos/" + docName;
+
+            return File(FileVirtualPath, "application/force-download", Path.GetFileName(FileVirtualPath));
+
         }
 
         private Usuario GetLoggerUser()

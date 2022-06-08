@@ -9,9 +9,10 @@ namespace EmpleosApp.Repositorio
         List<Vacante> ObtenerTodos();
         Vacante ObtenerPorId(int id);
 
-        List<Vacante> ObtenerDestacados();
+        List<Vacante> ObtenerDestacados(int pagina, int cantidadRegistrosPorPagina);
 
-        List<Vacante> ObtenerPorDescricion(string cadena);
+        List<Vacante> ObtenerDestacados();
+        List<Vacante> ObtenerPorDescricion(int id);
 
         void Create(Vacante vacante);
 
@@ -35,15 +36,24 @@ namespace EmpleosApp.Repositorio
             _dbEntities.SaveChanges();
         }
 
-        public List<Vacante> ObtenerDestacados()
+        public List<Vacante> ObtenerDestacados(int pagina, int cantidadRegistrosPorPagina)
         {
-            return _dbEntities.Vacantes.Where(x => x.Destacado == 1).Include("Categorias").ToList();
+            return _dbEntities.Vacantes.Include("Categorias")
+                 .Skip((pagina - 1) * cantidadRegistrosPorPagina)
+                 .Take(cantidadRegistrosPorPagina).ToList();
+
            // return _dbEntities.Vacantes.Include("Categorias").ToList();
         }
 
-        public List<Vacante> ObtenerPorDescricion(string cadena)
+        public List<Vacante> ObtenerDestacados()
         {
-            return _dbEntities.Vacantes.Where(x => x.Descripcion.Contains(cadena)).ToListAsync().Result;
+            return _dbEntities.Vacantes.Include("Categorias").ToList();
+        }
+
+        public List<Vacante> ObtenerPorDescricion(int id)
+        {
+            return _dbEntities.Vacantes.Where(x => x.IdCategoria == id).Include("Categorias").ToList();
+          //  return _dbEntities.Vacantes.Where(x => x.Descripcion.Contains(cadena)).ToListAsync().Result;
         }
 
         public Vacante ObtenerPorId(int id)
