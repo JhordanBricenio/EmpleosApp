@@ -21,28 +21,10 @@ body {
     background-position: 50%;
     background-size: cover;
     display: table;
-    height: 50%;
+    height: 100%;
     width: 100%;
     background-image: url("/images/fondo.jpg");
 }
 
 
-body::-webkit-scrollbar-thumb {
-    background-color: var(--mainColor);
-    outline: 1px solid var(--mainColor);
-}
-
-hr {
-    border: 2px solid var(--mainColor);
-    background-color: var(--mainColor);
-    width: 140px;
-    border-radius: 1px;
-}
-
-.main-color {
-    color: var(--mainColor);
-}
-
-.title-card {
-    color: #1b1b1b;
-}
+  

@@ -61,11 +61,8 @@ namespace EmpleosApp.Controllers
         [HttpPost]
         public IActionResult Create(Vacante vacante)
         {
-            
+
             //var categorias = _categoriaRepositorio.ObtenerTodos();
-            
-
-
             //Save image to wwwroot/image
             vacante.Imagen = UploadedFile(vacante);
 

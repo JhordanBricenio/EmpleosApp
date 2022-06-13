@@ -52,6 +52,7 @@ namespace EmpleosApp.Repositorio
             return _dbEntities.Solicitudes
                     .Include("Vacante")
                     .Include("Usuario")
+                    //.Include("Categoria")
                     .ToList();
                         
                         //.Include("Vacantes").ToList();

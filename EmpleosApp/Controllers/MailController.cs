@@ -9,7 +9,7 @@ namespace EmpleosApp.Controllers
 {
     public class MailController : Controller
     {
-        MailService MailService;
+        private readonly MailService MailService;
         public MailController(MailService MailService)
         {
             this.MailService = MailService;

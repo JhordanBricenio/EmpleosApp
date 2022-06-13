@@ -1,0 +1,248 @@
+{
+  "id": "628a43fc-4931-41d9-83fe-41016b379d13",
+  "version": "2.0",
+  "name": "PruebasEmpleosApp",
+  "url": "https://localhost:7166/",
+  "tests": [{
+    "id": "f74b0a6a-28e1-4205-965b-f49461aa198c",
+    "name": "Login Correcto",
+    "commands": [{
+      "id": "e55d1aa7-ad21-4931-a19d-4a7685006406",
+      "comment": "",
+      "command": "open",
+      "target": "https://localhost:7166/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "84c247a2-1a06-4a43-9ffe-35a242c9b327",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Ingresar",
+      "targets": [
+        ["linkText=Ingresar", "linkText"],
+        ["css=.mr-2", "css:finder"],
+        ["xpath=//a[contains(text(),'Ingresar')]", "xpath:link"],
+        ["xpath=//div[@id='navbarsExampleDefault']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/auth/login')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9efe647a-d468-40d1-804c-cf97dfd50578",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "jhordanb"
+    }, {
+      "id": "b626e033-fa1d-45f4-a632-5b8154c52f37",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7e32464-8b09-4dbd-ab6f-3b9b9d720cc6",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "12345"
+    }, {
+      "id": "093d91e8-3cec-448f-90a4-2a874333cb78",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "3ce4d99d-d84c-47b4-b73c-382852985bc3",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=Cerrar Sesión",
+      "targets": [
+        ["linkText=Cerrar Sesión", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Cerrar Sesión')]", "xpath:link"],
+        ["xpath=//div[@id='navbarsExampleDefault']/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/auth/Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Cerrar Sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fdcfb5a0-f78d-4fdd-bb11-f9eee7451684",
+    "name": "Login Incorrecto",
+    "commands": [{
+      "id": "69858a64-cdbb-4f14-8993-3660bcf0c4e5",
+      "comment": "",
+      "command": "open",
+      "target": "https://localhost:7166/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d6cadd46-ae12-4309-9092-e074028aced3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x784",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "96e57e78-0b0c-4363-8d66-de752094dc42",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Ingresar",
+      "targets": [
+        ["linkText=Ingresar", "linkText"],
+        ["css=.mr-2", "css:finder"],
+        ["xpath=//a[contains(text(),'Ingresar')]", "xpath:link"],
+        ["xpath=//div[@id='navbarsExampleDefault']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/auth/login')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4e77a4c-fb24-4c1c-a31d-79c32a3474df",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f76cfa7-1bf3-4208-90c5-fc82304a5889",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "26860bcf-9fd4-4ab2-aeb6-365bf7122137",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "329d24bb-a6fb-4c20-afce-695aef8ed46c",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "13356454"
+    }, {
+      "id": "fa1a4460-20cb-4d9c-ba12-47dd99925374",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-lg",
+      "targets": [
+        ["css=.btn-lg", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "20cb5be0-d979-4bbb-8c32-64e8a022343b",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=Ingreso",
+      "targets": [
+        ["id=Ingreso", "id"],
+        ["css=#Ingreso", "css:finder"],
+        ["xpath=//h4[@id='Ingreso']", "xpath:attributes"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "ae468dc6-5f14-4c13-8efe-2c9b9460380b",
+    "name": "Registra Usuario",
+    "commands": []
+  }, {
+    "id": "acedc4ed-3e11-424c-9911-89439cff70f8",
+    "name": "Postular Vacante Registro Incluido",
+    "commands": []
+  }, {
+    "id": "6ccff392-1d7b-4389-87e9-9546ef6d65f8",
+    "name": "Postular Usuario ya Registrado",
+    "commands": []
+  }, {
+    "id": "5757a2af-2fcd-4f3d-a51b-0fe5f59e022b",
+    "name": "Admin Recibe Solicitud y descarga CV",
+    "commands": []
+  }, {
+    "id": "441f730d-f678-405d-b377-db9789430925",
+    "name": "Admin Envío Correo Usuario",
+    "commands": []
+  }, {
+    "id": "d3fe8b3b-e61a-4e35-bb67-3e0d3d602c47",
+    "name": "Admin Creación Vacante",
+    "commands": []
+  }, {
+    "id": "7f5f9952-9ce9-4638-9a28-7cb58f1e2c6c",
+    "name": "Admin Creación categoría",
+    "commands": []
+  }],
+  "suites": [{
+    "id": "972087ca-d24c-40ff-b39f-8b8a4a4624d2",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["f74b0a6a-28e1-4205-965b-f49461aa198c"]
+  }],
+  "urls": ["https://localhost:7166/"],
+  "plugins": []
+}

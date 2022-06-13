@@ -28,7 +28,7 @@ namespace EmpleosApp.Models
         public int IdCategoria { get; set; }
 
 
-        public  Categoria? Categorias { get; set; }
+        public  Categoria Categorias { get; set; }
 
 
         [NotMapped]

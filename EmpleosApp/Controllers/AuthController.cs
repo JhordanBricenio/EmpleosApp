@@ -35,16 +35,16 @@ namespace EmpleosApp.Controllers
 
             var result = _authRepository.aunteticacionCok(username, password);
 
-            if (result.Perfiles.Count == 0)
-            {
-                var response = new
-                {
-                    success = false,
-                    message = "Usted no tiene Acceso al Sistema"
-                };
-                return Json(response);
-            }
-            
+            /* if (result.Perfiles.Count == 0)
+             {
+                 var response = new
+                 {
+                     success = false,
+                     message = "Usted no tiene Acceso al Sistema"
+                 };
+                 return Json(response);
+             }
+             */
 
 
             if (_authRepository.aunteticacionCokie(username, password))

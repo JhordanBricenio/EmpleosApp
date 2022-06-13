@@ -31,6 +31,7 @@ namespace EmpleosApp.Controllers
            
             if (ModelState.IsValid)
             {
+                
 
              _categoriasRepository.Guardar(categoria);
              TempData["SuccessMessage"] = "Se añádio la categoría de forma correcta";

@@ -1,0 +1,22 @@
+﻿D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\AuthControllerTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\CategoriasControllerTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\HomeControllerTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\SolicitudesControllerTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\UsuariosControllerTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\VacantesControllerTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Helpers\MockDbSet.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Repositorio\AuthRepositorioTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Repositorio\CategoriaRepositorioTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Repositorio\SolicitudRepositorioTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Repositorio\UsuarioRepositorioTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Repositorio\VacanteRepositorioTest.cs
+C:\Users\USUARIO\.nuget\packages\microsoft.net.test.sdk\16.11.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs
+C:\Users\USUARIO\.nuget\packages\microsoft.testplatform.testhost\16.11.0\build\netcoreapp2.1\x64\testhost.exe
+C:\Users\USUARIO\.nuget\packages\microsoft.testplatform.testhost\16.11.0\build\netcoreapp2.1\x64\testhost.dll
+C:\Users\USUARIO\.nuget\packages\microsoft.testplatform.testhost\16.11.0\build\netcoreapp2.1\x64\Microsoft.TestPlatform.PlatformAbstractions.dll
+C:\Users\USUARIO\.nuget\packages\nunit3testadapter\4.0.0\build\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\USUARIO\.nuget\packages\nunit3testadapter\4.0.0\build\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\USUARIO\.nuget\packages\nunit3testadapter\4.0.0\build\netcoreapp2.1\nunit.engine.dll
+C:\Users\USUARIO\.nuget\packages\nunit3testadapter\4.0.0\build\netcoreapp2.1\nunit.engine.api.dll
+C:\Users\USUARIO\.nuget\packages\nunit3testadapter\4.0.0\build\netcoreapp2.1\nunit.engine.core.dll
+C:\Users\USUARIO\.nuget\packages\nunit3testadapter\4.0.0\build\netcoreapp2.1\testcentric.engine.metadata.dll

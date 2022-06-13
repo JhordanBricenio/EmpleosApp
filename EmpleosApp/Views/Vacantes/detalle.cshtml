@@ -29,7 +29,7 @@
 			<div class="card">
 			  <h4 class="card-header">Aplicar para <strong>@Model.Nombre</strong></h4>              
 			  <div class="card-body">
-				<h5 class="card-title"><strong>Categoría: </strong> <span>Nombre la categoría</span></h5>
+				<h5 class="card-title"><strong>Categoría: </strong> <span>@Model.Categorias.Nombre</span></h5>
 				<h6 class="card-title"><strong>Publicado: </strong> <span>@Model.Fecha.ToString("d")</span></h6>                
 				<h6 class="card-title"><strong>Salario Ofrecido: </strong><span>@Model.Salario</span></h6>
 				<p class="card-text">@Model.Descripcion</p>

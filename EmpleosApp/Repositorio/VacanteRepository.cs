@@ -58,7 +58,7 @@ namespace EmpleosApp.Repositorio
 
         public Vacante ObtenerPorId(int id)
         {
-            return _dbEntities.Vacantes.First(o => o.Id== id);
+            return _dbEntities.Vacantes.Include("Categorias").First(o => o.Id== id);
         }
         
         public List<Vacante> ObtenerTodos()
