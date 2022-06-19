@@ -1,7 +1,9 @@
 ﻿using EmpleosApp.Controllers;
 using EmpleosApp.Models;
 using EmpleosApp.Repositorio;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -48,11 +50,15 @@ namespace EmpleosAppTest.Controllers
         public void CreatePostTest01()
         {
             var mockVacante = new Mock<IVacanteRepositorio>();
-                //mockVacante.Setup(o => o.ObtenerTodos()).Returns(new List<Vacante>() { new Vacante() });
+            
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            tempData["SuccessMessage"] = "admin";
 
-
-
-            var controller = new VacantesController(mockVacante.Object, null, null);
+            var controller = new VacantesController(mockVacante.Object, null, null)
+            {
+                TempData = tempData
+            };
 
             var result = controller.Create(new Vacante());
             Assert.IsNotNull(result);

@@ -32,7 +32,75 @@ namespace EmpleosAppTest.Controllers
         {
             var mock = new Mock<IUsuarioRepositorio>();
             var controller = new UsuariosController(mock.Object);
-            var result =controller.Index();
+            var result =controller.Create();
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOf<ViewResult>(result);
+
+        }
+        
+        
+        [Test]
+        public void CreatePosOkTest01()
+        {
+            var mock = new Mock<IUsuarioRepositorio>();
+            var controller = new UsuariosController(mock.Object);
+            var result = controller.Create(new Usuario()
+            {
+                Id = 1,
+                Nombre = "Juan",
+                Username = "Perez",
+                Password = "12345"
+            });
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOf<RedirectToActionResult>(result);
+
+        }
+        
+        [Test]
+        public void CreatePosNombreNoValidoTest01()
+        {
+            var mock = new Mock<IUsuarioRepositorio>();
+            var controller = new UsuariosController(mock.Object);
+            var result = controller.Create(new Usuario()
+            {
+                Id = 1,
+                Nombre = "Ju",
+                Username = "Perez",
+                Password = "12345"
+            });
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOf<ViewResult>(result);
+
+        }
+        [Test]
+        public void CreatePosUsernameNoValidoTest01()
+        {
+            var mock = new Mock<IUsuarioRepositorio>();
+            var controller = new UsuariosController(mock.Object);
+            var result = controller.Create(new Usuario()
+            {
+                Id = 1,
+                Nombre = "Juan",
+                Username = "P",
+                Password = "12345"
+            });
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOf<ViewResult>(result);
+
+        }
+
+        [Test]
+        public void CreatePosPasswordNoValidoTest01()
+        {
+            var mock = new Mock<IUsuarioRepositorio>();
+            var controller = new UsuariosController(mock.Object);
+            var result = controller.Create(new Usuario()
+            {
+                Id = 1,
+                Nombre = "Ju",
+                Username = "Perez",
+                Password = "1234"
+            });
             Assert.IsNotNull(result);
             Assert.IsInstanceOf<ViewResult>(result);
 

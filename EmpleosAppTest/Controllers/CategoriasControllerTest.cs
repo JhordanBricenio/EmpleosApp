@@ -53,11 +53,45 @@ namespace EmpleosAppTest.Controllers
             {
                 TempData = tempData
             }; 
-            var result = controller.Save(new Categoria() { Id = 1, Nombre = "Ingenieria" });
+            var result = controller.Save(new Categoria() { Id = 1, Nombre = "Ingenieria", Descripcion="holamundo net" });
             Assert.IsNotNull(result);
 
         }
-        
+
+        [Test]
+        public void CreatePostCrashNombreCaracteresNoValidosTest01()
+        {
+            var mockCategorias = new Mock<ICategoriaRepositorio>();
+
+
+
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            tempData["SuccessMessage"] = "admin";
+            var controller = new CategoriasController(mockCategorias.Object)
+            {
+                TempData = tempData
+            };
+            var result = controller.Save(new Categoria() { Id = 1, Nombre = "In" , Descripcion="holamundo net core "});
+            Assert.IsNotNull(result);
+
+        }
+        [Test]
+        public void CreatePostCrashCreatePostCrashDescripcionCaracteresNoValidosTest01()
+        {
+            var mockCategorias = new Mock<ICategoriaRepositorio>();
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            tempData["SuccessMessage"] = "admin";
+            var controller = new CategoriasController(mockCategorias.Object)
+            {
+                TempData = tempData
+            };
+            var result = controller.Save(new Categoria() { Id = 1, Nombre = "Inmundo", Descripcion = "holamundo"});
+            Assert.IsNotNull(result);
+
+        }
+
         [Test]
         public void EditGetTest01()
         {
@@ -70,7 +104,7 @@ namespace EmpleosAppTest.Controllers
         }
 
         [Test]
-        public void EditPostTest01()
+        public void EditPostOKTest01()
         {
             var mockCategorias = new Mock<ICategoriaRepositorio>();
             
@@ -84,8 +118,50 @@ namespace EmpleosAppTest.Controllers
             {
                 TempData = tempData
             };
-            
-            var result = controller.Edit(1, new Categoria());
+
+            var result = controller.Edit(1, new Categoria() { Id = 1, Nombre = "Ingenieria", Descripcion = "holamundo net core" });
+            Assert.IsNotNull(result);
+
+        }
+
+        [Test]
+        public void EditPostErrorIngresoNombreTest01()
+        {
+            var mockCategorias = new Mock<ICategoriaRepositorio>();
+
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            tempData["SuccessMessage"] = "admin";
+
+
+            mockCategorias.Setup(x => x.Editar(1, new Categoria()));
+            var controller = new CategoriasController(mockCategorias.Object)
+            {
+                TempData = tempData
+            };
+
+            var result = controller.Edit(1, new Categoria() { Id = 1, Nombre = "In", Descripcion = "holamundo net core" });
+            Assert.IsNotNull(result);
+
+        }
+
+        [Test]
+        public void EditPostErrorIngresoDescripcionNoValidoTest01()
+        {
+            var mockCategorias = new Mock<ICategoriaRepositorio>();
+
+            var httpContext = new DefaultHttpContext();
+            var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
+            tempData["SuccessMessage"] = "admin";
+
+
+            mockCategorias.Setup(x => x.Editar(1, new Categoria()));
+            var controller = new CategoriasController(mockCategorias.Object)
+            {
+                TempData = tempData
+            };
+
+            var result = controller.Edit(1, new Categoria() { Id = 1, Nombre = "Inmundo", Descripcion = "hola" });
             Assert.IsNotNull(result);
 
         }

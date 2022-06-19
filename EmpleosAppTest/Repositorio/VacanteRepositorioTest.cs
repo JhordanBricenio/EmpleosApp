@@ -21,7 +21,7 @@ namespace EmpleosAppTest.Repositorio
         {
             data = new List<Vacante>
             {
-                new Vacante { Id = 1, Nombre = "Vacante 01" },
+                new Vacante { Id = 1, Nombre = "Vacante 01" , Descripcion="hola mundo", IdCategoria=1},
                 new Vacante { Id = 2, Nombre = "Vacante 01" },
 
             }.AsQueryable();
@@ -43,7 +43,40 @@ namespace EmpleosAppTest.Repositorio
         }
 
         [Test]
-        public void UpdateTestCaso01()
+        public void ObtenerPOidTestCaso01()
+        {
+            var mockBdSetVacante = new MockDbSet<Vacante>(data);
+
+
+            var mockBd = new Mock<DbEntities>();
+            mockBd.Setup(x => x.Vacantes).Returns(mockBdSetVacante.Object);
+
+            var cuentaRepo = new VacanteRepository(mockBd.Object);
+
+            var result = cuentaRepo.ObtenerPorId(1);
+
+            Assert.AreEqual(true, result.Id.Equals(1));
+        }
+
+
+        [Test]
+        public void ObtenerDestacadosTestCaso01()
+        {
+            var mockBdSetVacante = new MockDbSet<Vacante>(data);
+
+
+            var mockBd = new Mock<DbEntities>();
+            mockBd.Setup(x => x.Vacantes).Returns(mockBdSetVacante.Object);
+
+            var cuentaRepo = new VacanteRepository(mockBd.Object);
+
+            var result = cuentaRepo.ObtenerDestacados(1,2);
+
+            Assert.AreEqual(2, result.Count);
+        }
+
+        [Test]
+        public void ObtenerPorDescripcionTestCaso01()
         {
             var mockBdSetVacante = new MockDbSet<Vacante>(data);
 
@@ -51,14 +84,12 @@ namespace EmpleosAppTest.Repositorio
             var mockBd = new Mock<DbEntities>();
                 mockBd.Setup(x => x.Vacantes).Returns(mockBdSetVacante.Object);
 
-            var vacanteRepo = new VacanteRepository(mockBd.Object);
+            var cuentaRepo = new VacanteRepository(mockBd.Object);
 
-            vacanteRepo.Update(data.First(o => o.Id == 1));
+            var result = cuentaRepo.ObtenerPorDescricion(1);
 
-            var datoMockEditar = data.First(o => o.Id == 1);           
-            
-            mockBdSetVacante.Verify(o => o.Update(datoMockEditar), Times.Once());
-
+            Assert.AreEqual(1, result.Count);
         }
+
     }
 }

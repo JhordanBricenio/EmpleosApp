@@ -32,6 +32,23 @@ namespace EmpleosApp.Controllers
         [HttpPost]
         public IActionResult Create(Usuario usuario)
         {
+            if (usuario.Nombre.Length<3)
+            {
+                ModelState.AddModelError("Nombre", "la longitud debe ser mayor a 3 caracteres.");
+
+
+            }
+            if (usuario.Username.Length < 3)
+            {
+                ModelState.AddModelError("Username", "la longitud debe estar entre 8 y 3 caracteres.");
+
+            }
+            if (usuario.Password.Length < 5)
+            {
+                ModelState.AddModelError("Password", "la longitud debe mayor a 5 caracteres.");
+
+            }
+
             if (ModelState.IsValid)
             {
                 usuario.Password = Encriptar(usuario.Password);

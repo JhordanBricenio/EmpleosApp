@@ -53,7 +53,7 @@
 							<option value="@item.Id">@item.Nombre</option>
 						}
 					</select>
-					@Html.ValidationMessage("Categorias")
+					@Html.ValidationMessage("Categorias.Id")
 				  </div>
 				</div>
 
@@ -66,12 +66,7 @@
 					</select>
 				  </div>
 				</div>
-				<div class="col-md-3"> 
-				  <div class="form-group">
-					<label for="fecha">Fecha de Publicación</label>
-					<input type="text" class="form-control" name="Fecha" id="Fecha"  Value="@ViewBag.Fecha" disabled= "disabled" required="required">
-				  </div>  
-				</div>
+				
 				<div class="col-md-3"> 
 				  <div class="form-check">
 					<label class="form-check-label" for="destacado0"></label><br>

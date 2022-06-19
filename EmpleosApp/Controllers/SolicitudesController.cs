@@ -79,7 +79,6 @@ namespace EmpleosApp.Controllers
             return File(FileVirtualPath, "application/force-download", Path.GetFileName(FileVirtualPath));
 
         }
-
         private Usuario GetLoggerUser()
         {
             var claim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);

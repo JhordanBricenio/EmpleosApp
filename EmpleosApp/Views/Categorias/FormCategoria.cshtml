@@ -21,7 +21,7 @@
       <hr>
       <div class="container">        
         <div class="card">
-          <h4 class="card-header"><strong>Datos de la categoría</strong></h4>              
+          <h4 id="categoria" class="card-header"><strong>Datos de la categoría</strong></h4>              
           <div class="card-body">
              <form action="/categorias/save" method="post">  
                     <input type="hidden"  />
@@ -30,6 +30,7 @@
                                   <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" class="form-control" id="Nombre" name="nombre" placeholder="Escriba el nombre de la categoria" required="required">
+                                    @Html.ValidationMessage("Nombre")
                                   </div>
                                 </div>                
                               </div> 
@@ -38,6 +39,7 @@
                                   <div class="form-group">
                                     <label for="descripcion">Descripción</label>
                                     <textarea class="form-control" name="descripcion" id="Descripcion"  rows="2" required="required"></textarea>
+                                    @Html.ValidationMessage("Descripcion")
                                   </div> 
                                 </div>                
                               </div> 

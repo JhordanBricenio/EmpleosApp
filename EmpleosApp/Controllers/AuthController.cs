@@ -35,18 +35,6 @@ namespace EmpleosApp.Controllers
 
             var result = _authRepository.aunteticacionCok(username, password);
 
-            /* if (result.Perfiles.Count == 0)
-             {
-                 var response = new
-                 {
-                     success = false,
-                     message = "Usted no tiene Acceso al Sistema"
-                 };
-                 return Json(response);
-             }
-             */
-
-
             if (_authRepository.aunteticacionCokie(username, password))
             {
                 var claims = new List<Claim>()
@@ -64,10 +52,7 @@ namespace EmpleosApp.Controllers
 
 
                 }
-
-               
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-                
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal,
                             new AuthenticationProperties { ExpiresUtc = DateTime.Now.AddDays(1), IsPersistent = true });
                 return RedirectToAction("Index", "Home");

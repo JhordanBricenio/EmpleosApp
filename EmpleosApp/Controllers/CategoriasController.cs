@@ -28,10 +28,18 @@ namespace EmpleosApp.Controllers
 
         public IActionResult Save(Categoria categoria)
         {
-           
+            if (categoria.Nombre.Length<3)
+            {
+                ModelState.AddModelError("Nombre", "El nombre debe tener al menos 3 caracteres");
+
+            }
+            if (categoria.Descripcion.Length < 10)
+            {
+                ModelState.AddModelError("Descripcion", "El nombre debe tener al menos 3 caracteres");
+
+            }
             if (ModelState.IsValid)
             {
-                
 
              _categoriasRepository.Guardar(categoria);
              TempData["SuccessMessage"] = "Se añádio la categoría de forma correcta";
@@ -54,7 +62,16 @@ namespace EmpleosApp.Controllers
         [HttpPost]
         public IActionResult Edit(int id, Categoria categoria )
         {
+            if (categoria.Nombre.Length < 3)
+            {
+                ModelState.AddModelError("Nombre", "El nombre debe tener al menos 3 caracteres");
 
+            }
+            if (categoria.Descripcion.Length < 10)
+            {
+                ModelState.AddModelError("Descripcion", "El nombre debe tener al menos 3 caracteres");
+
+            }
             _categoriasRepository.Editar(id, categoria);
             TempData["SuccessMessage"] = "Se editó la categoría de forma correcta";
             return RedirectToAction("Index");

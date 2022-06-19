@@ -39,6 +39,7 @@ namespace EmpleosApp.Repositorio
         public List<Vacante> ObtenerDestacados(int pagina, int cantidadRegistrosPorPagina)
         {
             return _dbEntities.Vacantes.Include("Categorias")
+                .OrderByDescending(x => x.Fecha)
                  .Skip((pagina - 1) * cantidadRegistrosPorPagina)
                  .Take(cantidadRegistrosPorPagina).ToList();
 

@@ -29,10 +29,10 @@
 		}
 
 		<div class="card">
-		  <h4 class="card-header"><strong>Listado de Solicitudes de Empleo</strong></h4>              
+		  <h4 id="Solicitud" class="card-header"><strong>Listado de Solicitudes de Empleo</strong></h4>              
 		  <div class="card-body">
-			<table class="table table-hover">
-			  <thead class="thead-light">
+			<table class="table table-bordered">
+			  <thead class="thead-dark">
 				<tr>
 				  <th scope="col">Categoría</th>
 				  <th scope="col">Vacante</th>
@@ -50,9 +50,23 @@
 				  <td>@item.Usuario.Nombre</td>
 				  <td>@item.Fecha.ToString("d")</td>
 				  <td>
-					<a href="/solicitudes/Delete?id=@item.Id" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
-					<a href="/Mail/Index?email=@item.Usuario.Email"  class="btn btn-success btn-sm" role="button" title="Enviar correo electrónico al usuario."><i class="fas fa-envelope" aria-hidden="true"></i></a>
-					<a href="/solicitudes/Download?docName=@item.Archivo" class="btn btn-success btn-sm" role="button" title="Descargar Curriculm Vitae."><i class="fas fa-download" aria-hidden="true"></i></a>
+					<a href="/solicitudes/Delete?id=@item.Id" onclick="return confirm('¿Estas seguro?')" class="btn btn-danger btn-sm" role="button" title="Eliminar el registro.">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+						  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+						</svg>
+					</a>
+					<a href="/Mail/Index?email=@item.Usuario.Email"  class="btn btn-warning btn-sm" role="button" title="Enviar correo electrónico al usuario.">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-check-fill" viewBox="0 0 16 16">
+						  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 4.697v4.974A4.491 4.491 0 0 0 12.5 8a4.49 4.49 0 0 0-1.965.45l-.338-.207L16 4.697Z"/>
+						  <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
+						</svg>
+					</a>
+					<a href="/solicitudes/Download?docName=@item.Archivo" class="btn btn-info btn-sm" role="button" title="Descargar Curriculm Vitae.">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+						  <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
+						  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+						</svg>
+					</a>
 				  </td>
 				</tr>
 				}

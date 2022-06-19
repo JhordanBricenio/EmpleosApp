@@ -55,12 +55,6 @@ namespace EmpleosApp.Controllers
         {
             return View();
         }
-        public IActionResult Search(int  id)
-        {
-            var vacantes = _vacanteRepositorio.ObtenerPorDescricion(id);
-            ViewBag.Categorias = _categoriaRepositorio.ObtenerTodos();
-            return View("Index", vacantes);
-        }
-    }
+     }
 
 }

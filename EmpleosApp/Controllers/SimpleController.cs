@@ -19,10 +19,5 @@ namespace EmpleosApp.Controllers
             var ret = _dbEntities.Usuarios.Include("Perfiles.Perfil").ToList();
             return View(ret); 
         }
-
-
-
-       
-
     }
 }

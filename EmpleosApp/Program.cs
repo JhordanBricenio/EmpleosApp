@@ -10,6 +10,7 @@ builder.Services.AddTransient<ICategoriaRepositorio, CategoriaRepository>();
 builder.Services.AddTransient<ISolicitudRepositorio, SolicitudRepository>();
 builder.Services.AddTransient<IUsuarioRepositorio, UsuarioRepository>();
 builder.Services.AddScoped<IAuthRepositorio, AuthRepository>();
+builder.Services.AddScoped<IMailService, MailService>();
 
 // Add services to the container.
 builder.Services.AddDbContext<DbEntities>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("con")));

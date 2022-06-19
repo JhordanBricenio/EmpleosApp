@@ -62,16 +62,12 @@ namespace EmpleosApp.Controllers
         public IActionResult Create(Vacante vacante)
         {
 
-            //var categorias = _categoriaRepositorio.ObtenerTodos();
-            //Save image to wwwroot/image
+            vacante.Fecha = DateTime.Now;
             vacante.Imagen = UploadedFile(vacante);
 
-                //Insert record
-                _vacanteRepositorio.Create(vacante);
-                return RedirectToAction(nameof(Index));
-                
-            
-            //return View("FormVacante", categorias);
+            _vacanteRepositorio.Create(vacante);
+            TempData["SuccessMessage"] = "Se agregó la vacante de forma correcta";
+            return RedirectToAction(nameof(Index));
             
         }
 

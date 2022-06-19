@@ -8,15 +8,20 @@ using System.Threading.Tasks;
 
 namespace EmpleosApp.Helpers
 {
-    public class MailService
+    public interface IMailService
     {
-        IConfiguration configuration;
+        void SendEmailGmail(String receptor, String asunto, String mensaje);
+        void SendEmailOutlook(String receptor, String asunto, String mensaje);
 
+
+    }
+    public class MailService : IMailService
+    {
+        private readonly IConfiguration configuration;
         public MailService(IConfiguration configuration)
         {
             this.configuration = configuration;
         }
-
 
         public void SendEmailGmail(String receptor, String asunto, String mensaje)
         {
@@ -85,5 +90,6 @@ namespace EmpleosApp.Helpers
             smtpClient.Credentials = usercredential;
             smtpClient.Send(mail);
         }
+
     }
 }

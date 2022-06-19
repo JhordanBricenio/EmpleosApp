@@ -42,7 +42,7 @@
 				</div>
 				@if (User.Identity.IsAuthenticated)
 				{
-				<a class="btn btn-primary" href="/Solicitudes/create?id=@Model.Id" role="button" title="Quiero aplicar para esta oferta de trabajo."><i class="fas fa-file" aria-hidden="true"></i> Aplicar</a>                            
+				<a class="btn btn-danger" href="/Solicitudes/create?id=@Model.Id" role="button" title="Quiero aplicar para esta oferta de trabajo."><i class="fas fa-file" aria-hidden="true"></i> Aplicar</a>                            
 				}else{
 				<div class="p-3 mb-2 alert alert-danger">Debe inciar sesión para poder postular</div>
 				}
