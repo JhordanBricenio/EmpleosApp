@@ -18,7 +18,7 @@ namespace EmpleosApp.Repositorio
     public class SolicitudRepository: ISolicitudRepositorio
     {
 
-            private DbEntities _dbEntities;
+            private readonly DbEntities _dbEntities;
             public SolicitudRepository(DbEntities dbEntities)
             {
                 _dbEntities = dbEntities;
@@ -52,10 +52,8 @@ namespace EmpleosApp.Repositorio
             return _dbEntities.Solicitudes
                     .Include("Vacante")
                     .Include("Usuario")
-                    //.Include("Categoria")
                     .ToList();
                         
-                        //.Include("Vacantes").ToList();
             }
         
     }

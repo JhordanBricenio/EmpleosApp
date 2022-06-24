@@ -22,7 +22,13 @@
 
 	<main role="main">     
 	  <hr>
-	  <div class="container"> 
+	  <div class="container">
+		  @if(TempData["SuccessMessage"] != null)
+		{
+			<div class="alert alert-success">
+				@TempData["SuccessMessage"]
+			</div>
+		}
 
 		<div class="card">
 		  <h4 class="card-header"><strong>Datos de la oferta de trabajo</strong></h4>              
@@ -46,14 +52,7 @@
 				<div class="col-md-3"> 
 				  <div class="form-group">
 					<label for="categoria">Categoría</label>
-					<select class="form-control" name="IdCategoria" id="IdCategoria">
-						<option value="" selected>Seleccione una categoría</option>
-						@foreach(var item in ViewBag.Categorias)
-						{
-							<option value="@item.Id">@item.Nombre</option>
-						}
-					</select>
-					
+					<input type="text" class="form-control" id="IdCategoria" name="IdCategoria" value="@Model.Categorias.Id" placeholder="Breve descripcion de la oferta de trabajo" readonly>
 				  </div>
 				</div>
 

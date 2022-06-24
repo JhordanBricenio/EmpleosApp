@@ -6,7 +6,9 @@ namespace EmpleosApp.DB
 {
     public partial class DbEntities: DbContext
     {
+        
         public DbEntities() { }
+      
 
 
         public DbEntities(DbContextOptions<DbEntities> options) : base(options) { }
@@ -19,7 +21,6 @@ namespace EmpleosApp.DB
 
             
             
-            //modelBuilder.ApplyConfiguration(new PerfilesMapping());
             modelBuilder.ApplyConfiguration(new SolicitudMapping());
             modelBuilder.ApplyConfiguration(new VacanteMapping());
 
@@ -33,5 +34,6 @@ namespace EmpleosApp.DB
         public virtual DbSet<UsuarioPerfil> UsuarioPerfil { get; set; }
 
         public virtual DbSet<Vacante> Vacantes { get; set; }
+        
     }
 }

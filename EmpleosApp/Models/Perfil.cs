@@ -12,6 +12,5 @@ namespace EmpleosApp.Models
         public int Id { get; set; }
         public string perfil { get; set; }
 
-       // public List<Usuario> Usuarios { get; set; }
     }
 }

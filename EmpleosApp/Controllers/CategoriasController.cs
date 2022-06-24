@@ -8,11 +8,11 @@ namespace EmpleosApp.Controllers
     public class CategoriasController : Controller
     {
         private readonly ICategoriaRepositorio _categoriasRepository;
-       // private readonly IAuthRepositorio _authRepositorio;
+
         public CategoriasController(ICategoriaRepositorio categoriasRepository)
         {
             this._categoriasRepository = categoriasRepository;
-            //this._authRepositorio = authRepositorio;
+
         }
         public IActionResult Index()
         {
@@ -28,6 +28,11 @@ namespace EmpleosApp.Controllers
 
         public IActionResult Save(Categoria categoria)
         {
+            var cantidad = _categoriasRepository.ContarPorNombre(categoria);
+            if (cantidad>0) 
+            {
+                ModelState.AddModelError("Nombre", "El nombre ya existe");
+            }
             if (categoria.Nombre.Length<3)
             {
                 ModelState.AddModelError("Nombre", "El nombre debe tener al menos 3 caracteres");
@@ -40,7 +45,6 @@ namespace EmpleosApp.Controllers
             }
             if (ModelState.IsValid)
             {
-
              _categoriasRepository.Guardar(categoria);
              TempData["SuccessMessage"] = "Se añádio la categoría de forma correcta";
               return RedirectToAction("Index");
@@ -62,6 +66,12 @@ namespace EmpleosApp.Controllers
         [HttpPost]
         public IActionResult Edit(int id, Categoria categoria )
         {
+            var cantidad = _categoriasRepository.ContarPorNombre(categoria);
+            if (cantidad > 0)
+            {
+                ModelState.AddModelError("Nombre", "El nombre ya existe");
+            }
+            var Categoria = _categoriasRepository.ObtenerPorId(id);
             if (categoria.Nombre.Length < 3)
             {
                 ModelState.AddModelError("Nombre", "El nombre debe tener al menos 3 caracteres");
@@ -72,9 +82,14 @@ namespace EmpleosApp.Controllers
                 ModelState.AddModelError("Descripcion", "El nombre debe tener al menos 3 caracteres");
 
             }
-            _categoriasRepository.Editar(id, categoria);
-            TempData["SuccessMessage"] = "Se editó la categoría de forma correcta";
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _categoriasRepository.Editar(id, categoria);
+                TempData["SuccessMessage"] = "Se editó la categoría de forma correcta";
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Edit",Categoria );
+
         }
 
         public ActionResult Delete(int id)

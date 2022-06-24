@@ -40,7 +40,6 @@ namespace EmpleosApp.Controllers
             modelo.RegistrosPorPagina = cantidadRegistrosPorPagina;
 
             ViewBag.Categorias = _categoriaRepositorio.ObtenerTodos();
-            //var vacante = _vacanteRepositorio.ObtenerDestacados();
 
             
             return View(modelo);

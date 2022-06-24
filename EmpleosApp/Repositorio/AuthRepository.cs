@@ -16,7 +16,7 @@ namespace EmpleosApp.Repositorio
     }
     public class AuthRepository : IAuthRepositorio
     {
-        private DbEntities _dbEntities;
+        private readonly DbEntities _dbEntities;
         public AuthRepository(DbEntities dbEntities)
         {
             _dbEntities = dbEntities;

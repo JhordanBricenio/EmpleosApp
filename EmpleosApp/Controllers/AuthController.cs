@@ -30,7 +30,6 @@ namespace EmpleosApp.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-           // Usuario user = new Usuario();
             password = DesEncriptar(password);
 
             var result = _authRepository.aunteticacionCok(username, password);

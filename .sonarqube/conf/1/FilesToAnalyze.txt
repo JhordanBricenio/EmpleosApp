@@ -1,5 +1,6 @@
 ﻿D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\AuthControllerTest.cs
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\CategoriasControllerTest.cs
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\EmailControllerTest.cs
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\HomeControllerTest.cs
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\SolicitudesControllerTest.cs
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosAppTest\Controllers\UsuariosControllerTest.cs

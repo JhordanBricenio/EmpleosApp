@@ -13,14 +13,21 @@ namespace EmpleosApp.Repositorio
         Usuario GetUsuario(int id);
 
         void DeleteUsuario(int id);
+
+        int ContarUserNameUsuario(Usuario usuario);
     }    
     public class UsuarioRepository: IUsuarioRepositorio
     {
 
-        private DbEntities _dbEntities;
+        private readonly DbEntities _dbEntities;
         public UsuarioRepository(DbEntities dbEntities)
         {
            _dbEntities = dbEntities;
+        }
+
+        public int ContarUserNameUsuario(Usuario usuario)
+        {
+            return _dbEntities.Usuarios.Count(o => o.Username == usuario.Username);
         }
 
         public void DeleteUsuario(int id)

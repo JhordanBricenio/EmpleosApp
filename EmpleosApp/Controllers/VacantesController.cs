@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmpleosApp.Controllers
 {
-    
+
     public class VacantesController : Controller
     {
-        private IVacanteRepositorio _vacanteRepositorio;
-        private ICategoriaRepositorio _categoriaRepositorio;
+        private readonly IVacanteRepositorio _vacanteRepositorio;
+        private readonly ICategoriaRepositorio _categoriaRepositorio;
         private readonly IWebHostEnvironment _hostEnvironment;
         public VacantesController(IVacanteRepositorio vacanteRepositorio, ICategoriaRepositorio categoriaRepositorio, IWebHostEnvironment hostEnvironment)
         {
@@ -21,9 +21,8 @@ namespace EmpleosApp.Controllers
         private string UploadedFile(Vacante vacante)
         {
             string fileName = null;
-            //ImageFile = variable local
-            //ImegnName= nombre
-            
+
+
             if (vacante.ImageFile != null)
             {
                 string wwwRootPath = _hostEnvironment.WebRootPath;
@@ -47,7 +46,7 @@ namespace EmpleosApp.Controllers
         public IActionResult VerDetalle(int id)
         {
             var vacantes = _vacanteRepositorio.ObtenerPorId(id);
-            return View("Detalle",vacantes);
+            return View("Detalle", vacantes);
         }
 
         [HttpGet]
@@ -61,6 +60,13 @@ namespace EmpleosApp.Controllers
         [HttpPost]
         public IActionResult Create(Vacante vacante)
         {
+            vacante.Fecha = DateTime.Now;
+            var cantidad = _vacanteRepositorio.ContarVancanteNombre(vacante);
+
+            if (cantidad > 0)
+            {
+                ModelState.AddModelError("Nombre", "Ya existe una vacante con ese nombre");
+            }
 
             vacante.Fecha = DateTime.Now;
             vacante.Imagen = UploadedFile(vacante);
@@ -68,14 +74,14 @@ namespace EmpleosApp.Controllers
             _vacanteRepositorio.Create(vacante);
             TempData["SuccessMessage"] = "Se agregó la vacante de forma correcta";
             return RedirectToAction(nameof(Index));
-            
+
+
         }
 
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewBag.Categorias = _categoriaRepositorio.ObtenerTodos();
             var Vacante = _vacanteRepositorio.ObtenerPorId(id);
             if (Vacante == null)
             {
@@ -87,12 +93,13 @@ namespace EmpleosApp.Controllers
         [HttpPost]
         public IActionResult Edit(int id, Vacante vacante)
         {
+            vacante.Fecha = DateTime.Now;
             if (id != vacante.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
@@ -105,7 +112,9 @@ namespace EmpleosApp.Controllers
                         }
                         vacante.Imagen = UploadedFile(vacante);
                     }
+
                     _vacanteRepositorio.Update(vacante);
+                    TempData["SuccessMessage"] = "Se actualizó la vacante de forma correcta";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -121,6 +130,13 @@ namespace EmpleosApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(vacante);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            _vacanteRepositorio.Delete(id);
+            TempData["SuccessMessage"] = "Se eliminó la vacante de forma correcta";
+            return RedirectToAction(nameof(Index));
         }
 
 

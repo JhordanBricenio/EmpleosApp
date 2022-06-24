@@ -2,7 +2,6 @@
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Controllers\CategoriasController.cs
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Controllers\HomeController.cs
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Controllers\MailController.cs
-D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Controllers\SimpleController.cs
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Controllers\SolicitudesController.cs
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Controllers\UsuariosController.cs
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Controllers\VacantesController.cs
@@ -57,8 +56,16 @@ D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\Emple
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Views\_ViewStart.cshtml
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\Can Artificial Intelligence do Everything we can223412939.pdf
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\Can Artificial Intelligence do Everything we can225812543.pdf
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\CarlosLopezCV223201382.pdf
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\EKFP0YBSmiguel.pdf
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\EKFP0YBSmiguel224312242.pdf
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\Examen223953638.pdf
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\fondo.jpg
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\JulioAlcazarCV220141358.pdf
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\JulioAlcazarCV223328736.pdf
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\JulioAlcazarCV225501398.pdf
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\PabloGaviriaCV222632829.pdf
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\archivos\Semana 05_01 Proyecto Final Sistema Eval y Cursos 221123250.pdf
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\css\site.css
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\favicon.ico
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\Captura de pantalla (644)220941338.png
@@ -71,6 +78,12 @@ D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\Emple
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\error.png
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\fondo.jpg
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\hotel-gf863c9428_1920224524069.jpg
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\lion_animal220908606.jpeg
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\lion_animal221001532.jpeg
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\lion_animal221611820.jpeg
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\lion_animal221823866.jpeg
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\lion_animal222036783.jpeg
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\lion_animal222157854.jpeg
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\lock.png
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\logo1.png
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\logo10.png
@@ -95,7 +108,28 @@ D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\Emple
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\logo7.png
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\logo8.png
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\logo9.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\logolayout.png
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\no-image.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\onpe225109300.jpg
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\onpe225839807.jpg
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R220527173.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R220820945.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R220911239.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R220928738.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R221231752.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R221322615.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R221547864.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R221814135.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R222436788.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R222523031.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R222616722.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R222841267.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R223055458.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R223651204.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R224654228.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R224942438.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R225136950.png
+D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\images\R225622710.png
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\js\site.js
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -137,6 +171,5 @@ D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\Emple
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Views\Shared\_Layout.cshtml.css
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Content\bootstrap.css
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Content\bootstrap.min.css
-D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Content\PagedList.css
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Content\Site.css
 D:\INGENIERIA DE SISTEMAS\CICLO IX\CALIDAD Y PRUEBAS DE SOFTWARE\Proyectos\EmpleosApp\EmpleosApp\Properties\launchSettings.json

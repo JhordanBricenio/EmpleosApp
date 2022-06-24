@@ -31,7 +31,6 @@ namespace EmpleosApp.Controllers
                 this.MailService.SendEmailOutlook(direccionEnvio, asunto, mensaje);
             }
             TempData["SuccessMessage"] = "Email enviado a " + direccionEnvio;
-            //ViewData["MENSAJE"] = "email enviado a " + direccionEnvio;
             return RedirectToAction("Index", "Solicitudes");
         }
     }

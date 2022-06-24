@@ -19,20 +19,35 @@ namespace EmpleosApp.Repositorio
         void Update(Vacante vacante);
 
         bool VacanteExists(int id);
+
+        int ContarVancanteNombre(Vacante vacante);
+
+        void Delete(int id);
     }
     
     public class VacanteRepository : IVacanteRepositorio
     {
-        private DbEntities _dbEntities;
+        private readonly DbEntities _dbEntities;
 
         public VacanteRepository(DbEntities dbEntities)
         {
             _dbEntities = dbEntities;
         }
 
+        public int ContarVancanteNombre(Vacante vacante)
+        {
+            return _dbEntities.Vacantes.Count(x => x.Nombre == vacante.Nombre);
+        }
+
         public void Create(Vacante vacante)
         {
             _dbEntities.Vacantes.Add(vacante);
+            _dbEntities.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            _dbEntities.Vacantes.Remove(ObtenerPorId(id));
             _dbEntities.SaveChanges();
         }
 
@@ -43,7 +58,6 @@ namespace EmpleosApp.Repositorio
                  .Skip((pagina - 1) * cantidadRegistrosPorPagina)
                  .Take(cantidadRegistrosPorPagina).ToList();
 
-           // return _dbEntities.Vacantes.Include("Categorias").ToList();
         }
 
         public List<Vacante> ObtenerDestacados()
@@ -54,7 +68,6 @@ namespace EmpleosApp.Repositorio
         public List<Vacante> ObtenerPorDescricion(int id)
         {
             return _dbEntities.Vacantes.Where(x => x.IdCategoria == id).Include("Categorias").ToList();
-          //  return _dbEntities.Vacantes.Where(x => x.Descripcion.Contains(cadena)).ToListAsync().Result;
         }
 
         public Vacante ObtenerPorId(int id)
@@ -64,7 +77,6 @@ namespace EmpleosApp.Repositorio
         
         public List<Vacante> ObtenerTodos()
         {
-            //return _dbEntities.Vacantes.ToList();
            return _dbEntities.Vacantes.Include("Categorias").ToList();
 
 
@@ -79,7 +91,6 @@ namespace EmpleosApp.Repositorio
         public bool VacanteExists(int id)
         {
             return _dbEntities.Vacantes.Any(o => o.Id == id);
-             //_context.Carousel.Any(e => e.CarouselId == id);
         }
     }
 }

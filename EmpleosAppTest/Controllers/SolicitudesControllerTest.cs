@@ -50,22 +50,16 @@ namespace EmpleosAppTest.Controllers
 
             var mockClaimsPrincipal = new Mock<ClaimsPrincipal>();
                 mockClaimsPrincipal.Setup(x => x.Claims).Returns(new List<Claim> { new Claim(ClaimTypes.Name, "admin") });
-
-
             //Para crear el http context creamos un mock de la clase http context (mockContext)
             var mockContext = new Mock<HttpContext>();//Configurando user el cual usa htppcontext
                 mockContext.Setup(o => o.User).Returns(mockClaimsPrincipal.Object);
-
             //Mock para no usar el usuario(auntenticacion) de la base de datos
             var mockAuthRepo = new Mock<IAuthRepositorio>();
                 mockAuthRepo.Setup(o => o.aunteticacion("admin")).Returns(new Usuario { Id = 1, Username = "admin" });
-
             //Mock para burlar tempData 
             var httpContext = new DefaultHttpContext();
             var tempData = new TempDataDictionary(httpContext, Mock.Of<ITempDataProvider>());
                 tempData["SuccessMessage"] = "admin";
-
-
             var controller = new SolicitudesController(mockSolicitud.Object, mockAuthRepo.Object, null)
                 {
                 TempData = tempData

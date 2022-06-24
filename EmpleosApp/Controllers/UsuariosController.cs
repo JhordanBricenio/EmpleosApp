@@ -32,10 +32,14 @@ namespace EmpleosApp.Controllers
         [HttpPost]
         public IActionResult Create(Usuario usuario)
         {
+            var cantidad = _usuarioRepositorio.ContarUserNameUsuario(usuario);
+            if (cantidad > 0)
+            {
+                ModelState.AddModelError("Username", "El nombre de usuario ya esta registrado.");
+            }
             if (usuario.Nombre.Length<3)
             {
                 ModelState.AddModelError("Nombre", "la longitud debe ser mayor a 3 caracteres.");
-
 
             }
             if (usuario.Username.Length < 3)
@@ -54,10 +58,9 @@ namespace EmpleosApp.Controllers
                 usuario.Password = Encriptar(usuario.Password);
                 
                 usuario.Estado = 1;
-                usuario.FechaRegistro = DateTime.Now;
-                // Creamos el Perfil que le asignaremos al usuario nuevo       
+                usuario.FechaRegistro = DateTime.Now;      
                 Perfil perfil = new Perfil();
-                perfil.Id=2; // Perfil USUARIO
+                perfil.Id=2;
                 usuario.agregar(perfil);
 
 
@@ -77,7 +80,7 @@ namespace EmpleosApp.Controllers
 
         }        
 
-        private string Encriptar(string password)
+        private static string Encriptar(string password)
         {
             SHA256 sha256 = SHA256.Create();
             ASCIIEncoding encoding = new ASCIIEncoding();

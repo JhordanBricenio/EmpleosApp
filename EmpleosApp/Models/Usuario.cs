@@ -47,7 +47,6 @@ namespace EmpleosApp.Models
         [NotMapped]
         public  List<Perfil>? Perfile { get; set; }
 
-        // Metodo para agregar perfiles
         public void agregar(Perfil tempPerfil)
         {
             if (Perfile == null)
@@ -56,7 +55,6 @@ namespace EmpleosApp.Models
             }
             Perfile.Add(tempPerfil);
         }
-        // Metodo para agregar perfiles
 
 
     }

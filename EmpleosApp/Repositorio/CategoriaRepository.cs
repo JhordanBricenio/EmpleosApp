@@ -16,13 +16,20 @@ namespace EmpleosApp.Repositorio
         void Eliminar(int id);
 
         List<Categoria> ObtenerPorNombre(string cadena);
+
+        int ContarPorNombre(Categoria categoria);
     }
     public class CategoriaRepository : ICategoriaRepositorio
     {
-        private DbEntities _dbEntities;
+        private readonly DbEntities _dbEntities;
         public CategoriaRepository(DbEntities dbEntities)
         {
             _dbEntities = dbEntities;
+        }
+
+        public int ContarPorNombre(Categoria categoria)
+        {
+            return _dbEntities.Categorias.Count(o => o.Nombre == categoria.Nombre);
         }
 
         public void Editar(int id, Categoria categoria)
